@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 
 const NAV_LINKS = [
   { name: "Home", href: "#" },
-  { name: "Sessions", href: "#activities" },
-  { name: "About", href: "#about" },
-  { name: "Safety", href: "#safety" },
-  { name: "Contact", href: "#contact" },
+  { name: "Our Story", href: "#story" },
+  { name: "Gatherings", href: "#gatherings" },
+  { name: "The Rules", href: "#safety" },
+  { name: "Find Us", href: "#contact" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/971544667458";
@@ -18,9 +18,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,17 +31,16 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-md py-3 dark:bg-slate-900/90"
+            ? "bg-white/90 backdrop-blur-md shadow-sm py-3 dark:bg-slate-900/90"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <a href="#" className="flex items-center gap-3 z-50 group">
               <img
                 src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`}
-                alt="TSF DXB Logo"
+                alt="TSF DXB"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               <span className={`font-display font-bold text-xl hidden sm:block transition-colors duration-300 ${isScrolled ? "text-slate-900 dark:text-white" : "text-white"}`}>
@@ -51,7 +48,6 @@ export function Navbar() {
               </span>
             </a>
 
-            {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               <ul className="flex items-center gap-6">
                 {NAV_LINKS.map((link) => (
@@ -70,17 +66,15 @@ export function Navbar() {
 
               <Button
                 asChild
-                className="rounded-full font-bold px-6 shadow-lg hover:shadow-xl transition-all"
-                style={{ backgroundColor: 'hsl(199 89% 48%)', color: 'white' }}
+                className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 mr-2" />
-                  Join for Free
+                  Join Us — Free
                 </a>
               </Button>
             </div>
 
-            {/* Mobile Menu Toggle */}
             <button
               className={`md:hidden z-50 p-2 rounded-full backdrop-blur-sm transition-colors ${
                 isScrolled ? "text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800" : "text-white hover:bg-white/20"
@@ -94,7 +88,6 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -105,12 +98,12 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-white dark:bg-slate-900 pt-24 px-6 pb-6 flex flex-col"
           >
             <ul className="flex flex-col gap-6 text-center mt-8">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map((link, idx) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
+                  transition={{ delay: idx * 0.06 }}
                 >
                   <a
                     href={link.href}
@@ -127,12 +120,11 @@ export function Navbar() {
               <Button
                 asChild
                 size="lg"
-                className="w-full rounded-2xl font-bold text-lg h-14"
-                style={{ backgroundColor: 'hsl(199 89% 48%)', color: 'white' }}
+                className="w-full rounded-2xl font-bold text-lg h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  Join the Community — Free!
+                  Join the WhatsApp Group
                 </a>
               </Button>
             </div>

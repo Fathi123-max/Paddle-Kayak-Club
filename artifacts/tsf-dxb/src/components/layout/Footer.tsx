@@ -1,4 +1,4 @@
-import { MapPin, Instagram, Phone, Heart } from "lucide-react";
+import { MapPin, Instagram, Heart, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/971544667458";
@@ -6,78 +6,88 @@ const WHATSAPP_URL = "https://wa.me/971544667458";
 export function Footer() {
   return (
     <footer id="contact" className="bg-slate-950 text-slate-300 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
 
-        {/* Top CTA Area */}
-        <div className="bg-gradient-to-r from-primary/20 to-primary/5 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-16 border border-primary/20">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Heart className="w-5 h-5 text-secondary fill-secondary" />
-              <span className="text-secondary font-bold uppercase tracking-widest text-sm">100% Free, Always</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">Ready to paddle with us?</h2>
-            <p className="text-slate-300 max-w-md text-lg">No fees, no sign-up forms. Just message us on WhatsApp and come join the crew on the water.</p>
+        {/* Top CTA */}
+        <div className="rounded-3xl p-10 md:p-14 text-center mb-20 relative overflow-hidden border border-white/5"
+          style={{ background: "linear-gradient(135deg, rgba(14,165,233,0.15) 0%, rgba(20,184,166,0.08) 100%)" }}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+          <div className="relative z-10">
+            <span className="text-5xl block mb-6">🌊</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-snug">
+              Ready to paddle with us<br />this weekend?
+            </h2>
+            <p className="text-slate-300 text-lg max-w-md mx-auto mb-8 leading-relaxed">
+              No sign-up forms. No fees. Just message us and come join the crew. The water is waiting.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full px-10 h-14 text-lg font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/20 border-none"
+            >
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Join the WhatsApp Group
+              </a>
+            </Button>
           </div>
-          <Button asChild size="lg" className="rounded-full px-8 h-14 text-lg font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/20 border-none shrink-0">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Join the Community Now
-            </a>
-          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          {/* Brand Col */}
-          <div className="flex flex-col gap-6">
+          {/* Brand */}
+          <div className="flex flex-col gap-5">
             <div className="flex items-center gap-4">
-              <div className="bg-white p-2 rounded-xl">
+              <div className="bg-white/10 p-2.5 rounded-2xl">
                 <img
                   src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`}
-                  alt="TSF DXB Logo"
-                  className="h-16 w-auto object-contain"
+                  alt="TSF DXB"
+                  className="h-14 w-auto object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-bold text-white">TSF DXB</h3>
-                <p className="text-primary font-medium text-sm tracking-widest uppercase">Team Supboard Forever</p>
+                <h3 className="text-xl font-display font-bold text-white">TSF DXB</h3>
+                <p className="text-primary/80 font-medium text-xs tracking-widest uppercase">Team Supboard Forever</p>
               </div>
             </div>
-            <p className="text-slate-400 leading-relaxed">
-              Dubai's free, community-driven water sports club. Stand-up paddle boarding and kayaking for everyone — no fees, no barriers, just good people and great water.
+            <p className="text-slate-400 leading-relaxed text-sm">
+              Dubai's free, passion-driven paddle community. Real people. Calm water. Good vibes.
+              No fees. No egos. No agenda.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-display font-bold text-xl mb-6">Quick Links</h4>
-            <ul className="flex flex-col gap-4">
-              <li><a href="#activities" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> Free Sessions</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> About The Club</a></li>
-              <li><a href="#safety" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span> Safety Guidelines</a></li>
+            <h4 className="text-white font-display font-bold text-lg mb-6">Explore</h4>
+            <ul className="flex flex-col gap-4 text-sm">
+              <li><a href="#story" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Story</a></li>
+              <li><a href="#gatherings" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Gatherings</a></li>
+              <li><a href="#safety" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Rules of the Water</a></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Find Us */}
           <div>
-            <h4 className="text-white font-display font-bold text-xl mb-6">Connect With Us</h4>
-            <ul className="flex flex-col gap-4">
+            <h4 className="text-white font-display font-bold text-lg mb-6">Find Us</h4>
+            <ul className="flex flex-col gap-4 text-sm">
               <li>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
-                    <Phone className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                    <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   </div>
-                  +971 54 466 7458
+                  WhatsApp · +971 54 466 7458
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
-                  <MapPin className="w-4 h-4" />
+              <li className="flex items-center gap-3 text-slate-400">
+                <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 Dubai, United Arab Emirates
               </li>
               <li>
                 <a href="https://instagram.com/tsf_dxb" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
-                    <Instagram className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                    <Instagram className="w-4 h-4 text-primary" />
                   </div>
                   @tsf_dxb
                 </a>
@@ -86,11 +96,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} TSF DXB — Team Supboard Forever. A free community club. Always.</p>
-          <div className="flex items-center gap-1 text-slate-500">
-            Made with <Heart className="w-3.5 h-3.5 mx-1 fill-secondary text-secondary" /> for the paddling community
-          </div>
+        <div className="pt-8 border-t border-white/5 text-center">
+          <p className="text-slate-500 text-sm flex items-center justify-center gap-1.5 flex-wrap">
+            Built with <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500 mx-0.5" /> in Dubai.
+            Always free. Always welcoming.
+            <span className="text-slate-600 mx-1">·</span>
+            © {new Date().getFullYear()} TSF DXB — Team Supboard Forever
+          </p>
         </div>
       </div>
     </footer>

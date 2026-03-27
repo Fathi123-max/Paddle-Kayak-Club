@@ -1,0 +1,81 @@
+🌊 SYSTEM INSTRUCTION: TSF DXB - The "Anti-Commercial" Community Movement
+
+1. The Core Philosophy (Read Carefully)
+
+Forget everything you know about corporate watersports businesses, booking engines, and conversion funnels.
+
+TSF DXB is NOT a business. It is a family, a tribe, and a community of water lovers in Dubai. We operate on 100% passion and 0% profit. Our goal is to bring people together to experience the magic of stand-up paddleboarding (SUP) and kayaking. There are no fees, no subscriptions, no hidden agendas, and no egos.
+
+When generating UI, components, or copywriting for this project, your overarching goal is to make the user feel welcomed, inspired, and part of a movement.
+
+2. The Brand Story & Vibe
+
+The Vibe: Authentic, warm, organic, and grounded. It should feel like a breath of fresh air compared to Dubai's fast-paced, highly commercialized lifestyle.
+
+The Visuals: Think "golden hour" (sunrises and sunsets), candid photos of real people laughing, imperfect hair, shared moments on the beach, and calm waters. Use organic shapes, ample whitespace, and warm aquatic tones (deep ocean blue, sunrise orange, warm sand).
+
+The Voice: Friendly, informal, passionate, and deeply welcoming. Speak to the user like a friend inviting them to hang out at the beach this weekend.
+
+3. Copywriting & Terminology Shift
+
+You must strictly enforce this vocabulary shift across the entire application:
+
+🚫 BAN THESE WORDS: Book Now, Reserve, Pricing, Customers, Clients, Lessons, Services, Checkout, Instructor, Business.
+
+✅ USE THESE WORDS: Join Us, Gatherings, Meetups, Family, Tribe, Community, Paddle Buddies, Sessions, RSVP, Discover, Share.
+
+4. Website Architecture & Content Strategy
+
+Instead of traditional business sections, build the site using these narrative blocks:
+
+A. The Hero Section (The Invitation)
+
+Headline: Something soul-stirring. e.g., "Find Your Tribe on the Water." or "Dubai's Free, Passion-Driven Paddle Community."
+
+Subheadline: "No memberships. No fees. Just good people, early mornings, and a shared love for the ocean. Bring your board and paddle with us."
+
+CTA: A single, warm button: "Join the WhatsApp Group" (Links to https://wa.me/971544667458).
+
+B. Our Story (The Manifesto)
+
+A section dedicated to why we exist. Explain that Dubai is fast, but the water is slow. We created TSF DXB to break away from commercialized sports and just get back to the basics: friends, nature, and the paddle. It’s a safe space for absolute beginners and seasoned pros alike.
+
+C. Our Gatherings (Replacing "Services")
+
+Do not use standard "Pricing Cards". Instead, use "Gathering Cards" or a "Weekly Rhythm" section.
+
+Example 1: The Sunrise Paddle. (e.g., "Every Friday at 6 AM. We catch the first light, paddle for an hour, and share coffee on the beach afterwards. 100% Free.")
+
+Example 2: The Sunset Float. (e.g., "Mid-week reset. Calm waters and golden skies. Absolute beginners welcome.")
+
+Logistics Note: Clearly state: "Don't have a board? No problem! We'll show you where to easily rent one nearby, or someone might have a spare. Just ask in the group!"
+
+D. The "Rules of the Water" (Replacing Terms & Conditions)
+
+Keep it wholesome but safe.
+
+Respect the ocean (leave no trace).
+
+Look out for each other (no one paddles alone).
+
+Good vibes only (leave your ego on the sand).
+
+E. The Footer (The Open Door)
+
+Clean, simple, and friendly.
+
+"Built with ❤️ in Dubai. Always free. Always welcoming."
+
+Contact: WhatsApp link (https://wa.me/971544667458) and Instagram links.
+
+5. Development Instructions for the AI
+
+When generating code (React/Tailwind):
+
+Use lucide-react for soft, friendly icons (Sun, Waves, Coffee, Heart, Users).
+
+Create soft UI elements—rounded corners (rounded-2xl or rounded-3xl), gentle shadows, and avoid harsh borders.
+
+Ensure the layout feels like a beautifully written editorial article or a modern community board, rather than a SaaS or e-commerce storefront.
+
+Action item: Acknowledge this new "soul" of the project, and when requested, generate the new Hero and Story sections using this exact paradigm.

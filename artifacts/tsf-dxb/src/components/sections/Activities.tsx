@@ -1,98 +1,89 @@
 import { motion } from "framer-motion";
-import { Clock, MapPin, Signal, CheckCircle, MessageCircle, Heart } from "lucide-react";
+import { Sun, Sunset, Users, Waves, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const WHATSAPP_URL = "https://wa.me/971544667458";
 
-const SESSIONS = [
+const GATHERINGS = [
   {
-    title: "Beginner SUP Session",
-    duration: "60 mins",
-    level: "Beginner",
-    location: "JBR Beach, Dubai",
-    bring: ["Your own board, or rent locally", "Sun cream & water bottle", "Comfortable swimwear", "Positive attitude!"],
-    emoji: "🏄",
-    featured: true
+    icon: Sun,
+    iconColor: "text-amber-500",
+    iconBg: "bg-amber-50 dark:bg-amber-950/40",
+    tag: "Every Friday",
+    time: "6:00 AM",
+    title: "The Sunrise Paddle",
+    body: "We catch the first light together. There's something magic about being on the water as Dubai wakes up. We paddle for an hour, then someone always brings coffee to share on the beach afterwards.",
+    vibe: "Calm, meditative, spectacular",
+    emoji: "☀️",
+    note: "Great for beginners — the water is glassy and still."
   },
   {
-    title: "Intermediate SUP Paddle",
-    duration: "90 mins",
-    level: "Intermediate",
-    location: "Dubai Marina",
-    bring: ["SUP board & paddle", "Life vest (provided)", "Water & snacks", "GoPro if you have one!"],
-    emoji: "🌊"
+    icon: Waves,
+    iconColor: "text-primary",
+    iconBg: "bg-primary/8 dark:bg-primary/15",
+    tag: "Mid-week",
+    time: "5:30 PM",
+    title: "The Sunset Float",
+    body: "Your mid-week reset. Golden skies, warm water, and the city skyline turning pink behind you. No agenda, just floating with good people and decompressing from the week.",
+    vibe: "Relaxed, golden, restorative",
+    emoji: "🌅",
+    note: "Absolute beginners welcome. We go at your pace."
   },
   {
-    title: "Kayak Group Tour",
-    duration: "2 hours",
-    level: "All Levels",
-    location: "Dubai Creek",
-    bring: ["Kayak (or rent locally)", "Paddle & life vest", "Water bottle", "Camera for the views"],
+    icon: Users,
+    iconColor: "text-secondary",
+    iconBg: "bg-secondary/8 dark:bg-secondary/15",
+    tag: "Monthly",
+    time: "Morning",
+    title: "The Big Community Meetup",
+    body: "Once a month we gather everyone — regular paddlers, first-timers, and total strangers who heard about us through a friend. More boards, more laughs, more memories made on the water.",
+    vibe: "Energetic, social, festive",
+    emoji: "🎉",
+    note: "The more the merrier. Bring a friend!"
+  },
+  {
+    icon: Star,
+    iconColor: "text-orange-500",
+    iconBg: "bg-orange-50 dark:bg-orange-950/40",
+    tag: "Weekend",
+    time: "7:00 AM",
+    title: "The Kayak Explore",
+    body: "We take the kayaks out and discover Dubai from the water. The creek, the canals, the coastline — there's so much you miss from the shore. These are the paddles people talk about for weeks.",
+    vibe: "Adventurous, exploratory, unforgettable",
     emoji: "🚣",
-    featured: true
-  },
-  {
-    title: "SUP Yoga Session",
-    duration: "75 mins",
-    level: "Beginner-Friendly",
-    location: "JBR Beach, Dubai",
-    bring: ["SUP board", "Comfortable yoga attire", "Towel & water", "Open mind & patience"],
-    emoji: "🧘"
-  },
-  {
-    title: "Advanced SUP Training",
-    duration: "2 hours",
-    level: "Advanced",
-    location: "Dubai Marina",
-    bring: ["Race or performance board", "Paddle & life vest", "Heart rate monitor optional", "Drive to push limits"],
-    emoji: "🏆"
-  },
-  {
-    title: "Social Evening Paddle",
-    duration: "Flexible",
-    level: "All Levels",
-    location: "JBR Beach, Dubai",
-    bring: ["Any board or kayak", "Lights for after sunset", "Good vibes only", "Tell a friend!"],
-    emoji: "🌅"
+    note: "Kayaks available to rent locally — we'll show you where."
   }
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90, damping: 18 } }
 };
 
 export function Activities() {
   return (
-    <section id="activities" className="py-24 bg-background relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="gatherings" className="py-28 bg-slate-50/70 dark:bg-slate-900/50 relative">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
 
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-bold text-sm mb-6">
-              <Heart className="w-4 h-4" />
-              100% Free · Open to Everyone
-            </span>
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">Our Sessions</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-extrabold text-foreground mb-6">
-              Choose Your Adventure
-            </h3>
-            <p className="text-lg text-muted-foreground">
-              All sessions are completely free. No memberships, no fees — just a passionate community who love the water. Come as you are.
+            <span className="text-primary font-bold tracking-widest uppercase text-sm">Our Weekly Rhythm</span>
+            <h2 className="text-4xl md:text-5xl font-display font-extrabold text-foreground mt-3 mb-6">
+              Our Gatherings
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We don't do schedules or sessions. We do meetups and moments.
+              Here's how we usually flow through the week — jump in wherever feels right.
             </p>
           </motion.div>
         </div>
@@ -101,82 +92,83 @@ export function Activities() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          viewport={{ once: true, margin: "-40px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
-          {SESSIONS.map((session, idx) => (
-            <motion.div key={idx} variants={itemVariants} className="h-full">
-              <Card className="h-full flex flex-col overflow-hidden border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 bg-card relative">
-
-                {session.featured && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <Badge className="bg-accent text-white hover:bg-accent border-none font-bold shadow-md">
-                      Popular
-                    </Badge>
+          {GATHERINGS.map((g, idx) => {
+            const Icon = g.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="flex items-start justify-between mb-6">
+                  <div className={`w-12 h-12 rounded-2xl ${g.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-6 h-6 ${g.iconColor}`} />
                   </div>
-                )}
-
-                <div className="absolute top-4 right-4 z-10">
-                  <Badge className="bg-secondary/90 text-white border-none font-bold text-xs px-3 py-1 shadow-sm">
-                    FREE
-                  </Badge>
+                  <div className="text-right">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-muted-foreground">{g.tag}</span>
+                    <span className="block text-sm font-semibold text-foreground mt-0.5">{g.time}</span>
+                  </div>
                 </div>
 
-                <div className="h-32 bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-800/50 dark:to-slate-900 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent group-hover:scale-150 transition-transform duration-700" />
-                  <span className="text-6xl drop-shadow-md relative z-10 group-hover:scale-110 transition-transform duration-300">
-                    {session.emoji}
-                  </span>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">{g.emoji}</span>
+                  <h3 className="text-2xl font-display font-bold text-foreground">{g.title}</h3>
                 </div>
 
-                <CardHeader className="pb-2 pt-6">
-                  <h4 className="text-xl font-display font-bold text-foreground line-clamp-1">{session.title}</h4>
-                </CardHeader>
+                <p className="text-muted-foreground leading-relaxed mb-5">{g.body}</p>
 
-                <CardContent className="flex-grow flex flex-col gap-4">
-                  <div className="grid grid-cols-2 gap-y-3 text-sm text-muted-foreground font-medium mb-2">
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-primary" />
-                      <span>{session.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Signal className="w-4 h-4 text-primary" />
-                      <span>{session.level}</span>
-                    </div>
-                    <div className="flex items-center gap-2 col-span-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>{session.location}</span>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
+                  <span className="italic">Vibe: {g.vibe}</span>
+                </div>
 
-                  <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-4 flex-grow border border-slate-100 dark:border-slate-800">
-                    <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">What to Bring</h5>
-                    <ul className="flex flex-col gap-2">
-                      {session.bring.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                          <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-
-                <CardFooter className="pt-2 pb-6">
-                  <Button
-                    asChild
-                    className="w-full h-12 rounded-xl font-bold bg-slate-900 hover:bg-slate-800 dark:bg-primary dark:hover:bg-primary/90 text-white"
-                  >
-                    <a href={`${WHATSAPP_URL}?text=Hi! I'd love to paddle with you at the ${encodeURIComponent(session.title)}. Count me in!`} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      RSVP on WhatsApp
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
+                <div className="bg-primary/5 dark:bg-primary/10 rounded-2xl px-5 py-4 border border-primary/10">
+                  <p className="text-sm text-primary font-medium">💡 {g.note}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
+
+        {/* Board rental note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-border/50 shadow-sm text-center max-w-3xl mx-auto mb-12"
+        >
+          <span className="text-4xl mb-4 block">🏄</span>
+          <h3 className="text-2xl font-display font-bold text-foreground mb-3">Don't have a board?</h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            No problem at all! We'll show you exactly where to rent one nearby. Or just ask in the group — someone almost always has a spare.{" "}
+            <strong className="text-foreground">Just show up.</strong> That's all we ask.
+          </p>
+        </motion.div>
+
+        <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-muted-foreground mb-6 text-lg">Exact meetup spots are shared in the WhatsApp group the day before.</p>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full h-14 px-10 font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white border-none shadow-lg"
+            >
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Join the WhatsApp Group
+              </a>
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
