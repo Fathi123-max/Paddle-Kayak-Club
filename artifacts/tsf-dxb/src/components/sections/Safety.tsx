@@ -6,25 +6,25 @@ const RULES = [
     icon: Leaf,
     iconColor: "text-secondary",
     iconBg: "bg-secondary/10",
-    number: "01",
-    title: "Respect the Ocean",
-    body: "The water gives us so much. We leave every beach cleaner than we found it. No litter. No noise. We take only memories and leave only footprints. The ocean is not our playground — it's our home."
+    number: "٠١",
+    title: "احترم البحر",
+    body: "البحر يمنحنا الكثير. نترك كل شاطئ أنظف مما وجدناه. لا قمامة، لا ضوضاء. لا نأخذ إلا الذكريات ولا نترك إلا بصمة الأقدام. المحيط ليس ملعبنا — بل هو بيتنا."
   },
   {
     icon: Users,
     iconColor: "text-primary",
     iconBg: "bg-primary/10",
-    number: "02",
-    title: "Look Out for Each Other",
-    body: "No one paddles alone in our community. We keep eyes on everyone, we check in, and we wait for the slowest paddler — because that's what family does. The water can be unpredictable. Your paddle buddy is your safety net."
+    number: "٠٢",
+    title: "انتبه لبعضكم البعض",
+    body: "لا أحد يتجدف وحيداً في مجتمعنا. نراقب الجميع، نتفقد بعضنا، وننتظر المتجدف الأبطأ — لأن هذا ما تفعله العائلة. الماء قد يكون غير متوقع. رفيقك في التجديف هو شبكة أمانك."
   },
   {
     icon: Waves,
     iconColor: "text-amber-500",
     iconBg: "bg-amber-50 dark:bg-amber-950/30",
-    number: "03",
-    title: "Good Vibes Only",
-    body: "Leave your ego on the sand. There's no competition, no performance, no judgement. Whether you fall off your board ten times or glide like a pro, you belong here equally. We celebrate showing up, not showing off."
+    number: "٠٣",
+    title: "الأجواء الإيجابية فقط",
+    body: "اترك غرورك على الرمال. لا منافسة، لا عروض، لا أحكام. سواء وقعت عن لوحك عشر مرات أو انزلقت كالمحترف، فأنت تنتمي إلى هنا بالقدر ذاته. نحتفل بالحضور، لا بالبهرجة."
   }
 ];
 
@@ -42,13 +42,13 @@ export function Safety() {
           transition={{ duration: 0.65 }}
           className="text-center mb-20"
         >
-          <span className="text-primary font-bold tracking-widest uppercase text-sm">How We Roll</span>
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold text-foreground mt-3 mb-6">
-            Rules of the Water
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">كيف نسير</span>
+          <h2 className="text-4xl md:text-5xl font-display font-black text-foreground mt-3 mb-6">
+            قواعد الماء
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            We're relaxed about almost everything. But these three things?
-            Non-negotiable. They're what make TSF DXB feel safe, special, and real.
+            نحن مرنون في كل شيء تقريباً. لكن هذه الثلاثة؟
+            لا تهاون فيها. هي ما يجعل TSF DXB آمناً، مميزاً، وحقيقياً.
           </p>
         </motion.div>
 
@@ -58,7 +58,7 @@ export function Safety() {
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: idx * 0.15, duration: 0.6 }}
@@ -89,7 +89,7 @@ export function Safety() {
           className="mt-14 text-center"
         >
           <p className="text-muted-foreground text-lg italic">
-            "The water doesn't care about your job title. Neither do we."
+            "الماء لا يهتم بمسماك الوظيفي. ونحن كذلك."
           </p>
         </motion.div>
       </div>

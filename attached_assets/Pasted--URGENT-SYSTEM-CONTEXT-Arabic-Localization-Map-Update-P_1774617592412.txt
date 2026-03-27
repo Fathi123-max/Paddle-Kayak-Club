@@ -1,0 +1,51 @@
+🌍 URGENT SYSTEM CONTEXT: Arabic Localization & Map Update
+
+Please update the entire TSF DXB website to be fully in Arabic, while maintaining the warm, non-commercial community vibe.
+
+Execute the following technical and content changes:
+
+1. RTL (Right-to-Left) Layout Support
+
+Add dir="rtl" to the main HTML/Body tag.
+
+Update all directional Tailwind CSS classes to use logical properties where necessary (e.g., use ms- and me- instead of ml- and mr-, use text-start instead of text-left, and space-x-reverse if using space-x).
+
+Ensure flexbox layouts (like navbars and side-by-side columns) flip correctly for Arabic reading flow.
+
+2. Typography
+
+Implement a modern, friendly Arabic font from Google Fonts. I highly recommend "Cairo" or "Tajawal" for a clean, editorial look.
+
+Adjust line heights and font sizes slightly if needed, as Arabic script usually requires a bit more breathing room than English.
+
+3. Translation Strategy (Community Tone)
+
+Translate all English copy into welcoming, friendly, and natural Arabic (with a UAE/Khaleeji community feel, not overly formal).
+
+Hero Headline: Translate "Find Your Tribe on the Water" to something like "اكتشف مجتمعك على الماء" or "عائلتك الجديدة بانتظارك على الشاطئ".
+
+Subheadline: "مجتمع مجاني 100% لمحبي التجديف. بدون رسوم، بدون قيود. فقط أشخاص رائعون، وصباحات باكرة في حديقة شاطئ الممزر، وحب مشترك للبحر."
+
+Schedule: Translate "Every Saturday and Sunday at 6 AM" to "كل سبت وأحد الساعة 6:00 صباحاً".
+
+BBQ: Translate the barbecue note to "أحياناً نستبدل المجاذيف بالشواية! ننظم حفلات شواء على الشاطئ لأوقات ممتعة وطعام لذيذ وقت الغروب."
+
+Rules: Translate the 3 rules (Respect the ocean, Look out for each other, Good vibes only) into simple Arabic bullet points.
+
+CTAs: Change buttons to "انضم لمجموعة الواتساب" (Join WhatsApp Group).
+
+4. Map Coordinate Update
+
+Update the Google Maps embed iframe to point exactly to these coordinates: 25.318419070956256, 55.34765853282304.
+
+Ensure the map pin explicitly lands on this spot at Al Mamzar Beach Park.
+
+Ensure the map container retains its soft, rounded corners (rounded-2xl).
+
+5. Contact Verification
+
+Confirm that the phone number is displayed as +971 56 943 1688 (ensure the layout doesn't break the formatting of the numbers in RTL).
+
+Confirm all CTA links point to https://wa.me/971569431688.
+
+Please generate the updated code for the Homepage reflecting these RTL and Arabic localization changes.

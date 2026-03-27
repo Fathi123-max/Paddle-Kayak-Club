@@ -4,11 +4,11 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NAV_LINKS = [
-  { name: "Home", href: "#" },
-  { name: "Our Story", href: "#story" },
-  { name: "Gatherings", href: "#gatherings" },
-  { name: "The Rules", href: "#safety" },
-  { name: "Find Us", href: "#contact" },
+  { name: "الرئيسية", href: "#" },
+  { name: "قصتنا", href: "#story" },
+  { name: "لقاءاتنا", href: "#gatherings" },
+  { name: "قواعد الماء", href: "#safety" },
+  { name: "ابحث عنا", href: "#contact" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
@@ -54,7 +54,7 @@ export function Navbar() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className={`text-sm font-semibold tracking-wide transition-colors hover:text-primary ${
+                      className={`text-sm font-semibold transition-colors hover:text-primary ${
                         isScrolled ? "text-slate-700 dark:text-slate-200" : "text-white/90"
                       }`}
                     >
@@ -69,8 +69,8 @@ export function Navbar() {
                 className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Join Us — Free
+                  <MessageCircle className="w-4 h-4 me-2" />
+                  انضم مجاناً
                 </a>
               </Button>
             </div>
@@ -80,7 +80,7 @@ export function Navbar() {
                 isScrolled ? "text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800" : "text-white hover:bg-white/20"
               }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label="فتح القائمة"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -123,8 +123,8 @@ export function Navbar() {
                 className="w-full rounded-2xl font-bold text-lg h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Join the WhatsApp Group
+                  <MessageCircle className="w-5 h-5 me-2" />
+                  انضم لمجموعة الواتساب
                 </a>
               </Button>
             </div>

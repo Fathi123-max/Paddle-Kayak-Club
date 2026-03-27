@@ -16,13 +16,13 @@ export function Footer() {
           <div className="relative z-10">
             <span className="text-5xl block mb-6">🌊</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-snug">
-              Ready to paddle with us<br />this weekend?
+              مستعد للتجديف معنا<br />هذا الأسبوع؟
             </h2>
             <p className="text-slate-300 text-lg max-w-md mx-auto mb-2 leading-relaxed">
-              No sign-up forms. No fees. Just message us and come join the crew.
+              لا نماذج تسجيل. لا رسوم. فقط أرسل لنا رسالة وانضم إلى الفريق. الماء في انتظارك.
             </p>
             <p className="text-slate-400 text-sm mb-8">
-              📍 Al Mamzar Beach Park · Every Saturday & Sunday · 6:00 AM
+              📍 حديقة شاطئ الممزر · كل سبت وأحد · الساعة ٦:٠٠ صباحاً
             </p>
             <Button
               asChild
@@ -30,8 +30,8 @@ export function Footer() {
               className="rounded-full px-10 h-14 text-lg font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/20 border-none"
             >
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Join the WhatsApp Group
+                <MessageCircle className="w-5 h-5 me-2" />
+                انضم لمجموعة الواتساب
               </a>
             </Button>
           </div>
@@ -54,43 +54,43 @@ export function Footer() {
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-sm">
-              Dubai's free, passion-driven paddle community. Real people. Calm water. Good vibes.
-              No fees. No egos. No agenda.
+              مجتمع التجديف الحر في دبي. أناس حقيقيون. مياه هادئة. أجواء رائعة.
+              بدون رسوم. بدون غرور. بدون أجندات.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-display font-bold text-lg mb-6">Explore</h4>
+            <h4 className="text-white font-display font-bold text-lg mb-6">استكشف</h4>
             <ul className="flex flex-col gap-4 text-sm">
-              <li><a href="#story" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Story</a></li>
-              <li><a href="#gatherings" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Gatherings</a></li>
-              <li><a href="#location" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Location & Map</a></li>
-              <li><a href="#safety" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Rules of the Water</a></li>
+              <li><a href="#story" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> قصتنا</a></li>
+              <li><a href="#gatherings" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> لقاءاتنا</a></li>
+              <li><a href="#location" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> الموقع والخريطة</a></li>
+              <li><a href="#safety" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> قواعد الماء</a></li>
             </ul>
           </div>
 
           {/* Find Us */}
           <div>
-            <h4 className="text-white font-display font-bold text-lg mb-6">Find Us</h4>
+            <h4 className="text-white font-display font-bold text-lg mb-6">ابحث عنا</h4>
             <ul className="flex flex-col gap-4 text-sm">
               <li>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center shrink-0">
                     <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   </div>
-                  WhatsApp · +971 56 943 1688
+                  واتساب · ‎+971 56 943 1688
                 </a>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
-                <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                Al Mamzar Beach Park, Dubai
+                حديقة شاطئ الممزر، دبي
               </li>
               <li>
                 <a href="https://instagram.com/tsf_dxb" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center shrink-0">
                     <Instagram className="w-4 h-4 text-primary" />
                   </div>
                   @tsf_dxb
@@ -102,8 +102,8 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 text-center">
           <p className="text-slate-500 text-sm flex items-center justify-center gap-1.5 flex-wrap">
-            Built with <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500 mx-0.5" /> in Dubai.
-            Always free. Always welcoming.
+            صُنع بـ <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500 mx-0.5" /> في دبي.
+            مجاني دائماً. ترحيبي دائماً.
             <span className="text-slate-600 mx-1">·</span>
             © {new Date().getFullYear()} TSF DXB — Team Supboard Forever
           </p>

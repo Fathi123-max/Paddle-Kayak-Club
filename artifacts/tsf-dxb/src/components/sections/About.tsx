@@ -4,8 +4,8 @@ import { Waves, Sun, Coffee } from "lucide-react";
 export function About() {
   return (
     <section id="story" className="py-28 bg-white dark:bg-background relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 start-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 end-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="max-w-4xl mx-auto px-6 sm:px-8 relative z-10">
 
@@ -21,10 +21,10 @@ export function About() {
             alt="TSF DXB"
             className="h-20 w-auto mx-auto mb-10 drop-shadow-sm"
           />
-          <span className="text-primary font-bold tracking-widest uppercase text-sm">Our Story</span>
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold text-foreground mt-3 mb-8 leading-tight">
-            Dubai moves fast.<br />
-            <span className="text-primary">The water doesn't.</span>
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">قصتنا</span>
+          <h2 className="text-4xl md:text-5xl font-display font-black text-foreground mt-3 mb-8 leading-tight">
+            دبي تتحرك بسرعة.<br />
+            <span className="text-primary">الماء لا يستعجل.</span>
           </h2>
         </motion.div>
 
@@ -36,9 +36,9 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="text-xl md:text-2xl text-foreground font-light leading-loose text-center max-w-3xl mx-auto"
           >
-            We created TSF DXB to break away from the rush — the appointments, the memberships,
-            the transactional nature of everything. We just wanted to{" "}
-            <strong className="font-semibold text-primary">paddle with friends.</strong>
+            أسسنا TSF DXB للهروب من ضجيج الحياة — المواعيد، الاشتراكات، والطابع التجاري لكل شيء.
+            كل ما أردناه هو{" "}
+            <strong className="font-bold text-primary">التجديف مع أصدقاء.</strong>
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -47,22 +47,22 @@ export function About() {
                 icon: Sun,
                 color: "text-amber-500",
                 bg: "bg-amber-50 dark:bg-amber-950/30",
-                title: "It started with one sunrise.",
-                body: "A handful of people, two borrowed boards, and a beach in Dubai. No plan. No agenda. Just the sound of water and the feeling of being completely present."
+                title: "بدأت بشروق شمس واحد.",
+                body: "حفنة من الناس، لوحان مستعاران، وشاطئ في دبي. لا خطة ولا أجندة. فقط صوت الأمواج والشعور بالحضور الكامل في اللحظة."
               },
               {
                 icon: Waves,
                 color: "text-primary",
                 bg: "bg-primary/5 dark:bg-primary/10",
-                title: "Then the word spread.",
-                body: "Friends told friends. Strangers became regulars. The WhatsApp group grew. And we realised we'd accidentally built something beautiful — a community of real people who love the water."
+                title: "ثم انتشر الخبر.",
+                body: "أخبر الأصدقاء أصدقاءهم. الغرباء أصبحوا وجوهاً مألوفة. نمت مجموعة الواتساب. وأدركنا أننا أنشأنا شيئاً جميلاً عن غير قصد — مجتمعاً من أناس حقيقيين يعشقون الماء."
               },
               {
                 icon: Coffee,
                 color: "text-orange-500",
                 bg: "bg-orange-50 dark:bg-orange-950/30",
-                title: "Now it's a weekly ritual.",
-                body: "We paddle, we share stories, we grab coffee on the beach. No logos. No coaches. No fees. Just TSF DXB — Team Supboard Forever — showing up for each other, week after week."
+                title: "وأصبح طقساً أسبوعياً.",
+                body: "نتجدف، نتشارك الحكايات، ونحتسي القهوة على الشاطئ. بدون شعارات، بدون مدربين، بدون رسوم. فقط TSF DXB — نظهر لبعضنا البعض، أسبوعاً بعد أسبوع."
               }
             ].map(({ icon: Icon, color, bg, title, body }, idx) => (
               <motion.div
@@ -90,11 +90,10 @@ export function About() {
             className="bg-gradient-to-br from-primary/8 to-teal-500/5 rounded-3xl p-10 md:p-14 text-center border border-primary/10"
           >
             <p className="text-2xl md:text-3xl font-display font-bold text-foreground leading-snug mb-4">
-              "TSF DXB is a safe space for absolute beginners
-              and seasoned pros alike."
+              "TSF DXB مكان آمن للمبتدئين تماماً والمحترفين على حدٍّ سواء."
             </p>
             <p className="text-muted-foreground text-lg">
-              If you can float, you belong. The only qualification we ask for is a good attitude.
+              إذا كنت تستطيع العوم، فأنت تنتمي إلى هنا. المؤهل الوحيد الذي نطلبه هو الروح الطيبة.
             </p>
           </motion.div>
         </div>
