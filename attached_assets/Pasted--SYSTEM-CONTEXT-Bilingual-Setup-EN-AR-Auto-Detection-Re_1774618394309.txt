@@ -1,0 +1,93 @@
+ SYSTEM CONTEXT: Bilingual Setup (EN/AR), Auto-Detection & Refined Arabic Copy
+
+Please update the TSF DXB project to be a fully bilingual website (English and Arabic). Implement a seamless language switching experience and update the Arabic translations to sound highly natural, welcoming, and culturally appropriate for a UAE-based community.
+
+1. Technical Requirements (Language Switcher & Auto-Detect)
+
+Auto-Detect Language: On initial load, detect the user's browser language (navigator.language). If it's Arabic (ar), default to Arabic. Otherwise, default to English. Save this preference in localStorage.
+
+Language Switcher UI: Add a clean, minimal language toggle in the Navbar (e.g., a Globe icon with "EN / AR" or simply "العربية" when in English, and "English" when in Arabic).
+
+Dynamic Direction (LTR/RTL): - When Arabic is selected, the <html> or <body> tag MUST update to dir="rtl" and use an Arabic-optimized font (like Cairo or Tajawal from Google Fonts).
+
+When English is selected, revert to dir="ltr" and use the default sans-serif font (like Inter or Roboto).
+
+Tailwind RTL: Ensure all layout utilities use logical properties (e.g., ms-, me-, text-start, text-end) so the UI flips perfectly without breaking the grid or Navbar.
+
+2. Refined Arabic Copy (Dictionary)
+
+Use the following highly natural, community-focused Arabic copy. Do not use literal or robotic translations.
+
+A. Navbar & General UI
+
+EN: "Home" | AR: "الرئيسية"
+
+EN: "Our Gatherings" | AR: "تجمعاتنا"
+
+EN: "Our Story" | AR: "قصتنا"
+
+EN: "Location" | AR: "موقعنا"
+
+B. Hero Section
+
+EN Headline: "Find Your Tribe on the Water."
+
+AR Headline: "مجتمعك وعائلتك على البحر."
+
+EN Subheadline: "No memberships. No fees. Just good people, early mornings at Al Mamzar, and a shared love for the ocean. Bring your board and paddle with us."
+
+AR Subheadline: "مجتمع مجاني 100% لمحبي رياضة التجديف والكاياك. بدون رسوم أو اشتراكات.. فقط صحبة طيبة، أجواء صباحية ساحرة في حديقة شاطئ الممزر، وشغف مشترك للبحر. جيب بوردك وشاركنا!"
+
+EN CTA Button: "Join our WhatsApp Group"
+
+AR CTA Button: "انضم لجروب الواتساب"
+
+C. Our Gatherings Section
+
+EN Title: "The Weekend Sunrise Paddle"
+
+AR Title: "تجديف وقت الشروق"
+
+EN Time/Location: "Every Saturday and Sunday at 6 AM | Al Mamzar Beach Park"
+
+AR Time/Location: "كل سبت وأحد، الساعة 6:00 صباحاً | حديقة شاطئ الممزر"
+
+EN BBQ Title: "Beach Barbecues & Sunsets"
+
+AR BBQ Title: "باربيكيو وأجواء الغروب"
+
+EN BBQ Desc: "Sometimes we swap the paddles for a grill! We host occasional beach barbecues for good food, great company, and sunset vibes by the water."
+
+AR BBQ Desc: "مرات نغيّر الجو ونبدل المجاذيف بشواية الباربيكيو! تجمعات عفوية على الشاطئ، أكل لذيذ، وجلسة ما تنوصف وقت الغروب."
+
+EN Equipment Note: "Don't have a board? No worries! We'll show you where to rent one nearby, or someone might have a spare. Just ask in the group!"
+
+AR Equipment Note: "ما عندك بورد؟ لا تشيل هم! راح ندلك على أماكن تأجير قريبة، أو ممكن أحد من الشباب يوفر لك بورد إضافي. بس اسأل في الجروب وما يصير خاطرك إلا طيب!"
+
+D. Map & Location Section
+
+Ensure the Google Maps iframe coordinates point exactly to: 25.318419070956256, 55.34765853282304 (Al Mamzar Beach Park).
+
+EN Map Title: "Where to find us" | AR Map Title: "مكان تجمعاتنا"
+
+E. Rules of the Water
+
+EN Rule 1: "Respect the ocean (leave no trace)."
+
+AR Rule 1: "نحترم البحر (نحافظ على نظافة المكان دائماً)."
+
+EN Rule 2: "Look out for each other (no one paddles alone)."
+
+AR Rule 2: "عيننا على بعض (محد ينزل البحر بروحه)."
+
+EN Rule 3: "Good vibes only (leave your ego on the sand)."
+
+AR Rule 3: "الروح الحلوة والإيجابية (اترك همومك على الشاطئ)."
+
+F. Contact Info
+
+Verify all WhatsApp buttons explicitly link to: https://wa.me/971569431688.
+
+Ensure the phone number displays correctly as +971 56 943 1688 even when the layout is RTL.
+
+Please generate the necessary state management (Context or Hooks) to handle the language toggle, update the Tailwind CSS logic for RTL/LTR, and populate the components with this updated dictionary

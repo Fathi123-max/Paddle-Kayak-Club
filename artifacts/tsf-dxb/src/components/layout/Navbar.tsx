@@ -1,27 +1,31 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const NAV_LINKS = [
-  { name: "الرئيسية", href: "#" },
-  { name: "قصتنا", href: "#story" },
-  { name: "لقاءاتنا", href: "#gatherings" },
-  { name: "قواعد الماء", href: "#safety" },
-  { name: "ابحث عنا", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
 export function Navbar() {
+  const { t, lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const NAV_LINKS = [
+    { name: t.nav_home, href: "#" },
+    { name: t.nav_story, href: "#story" },
+    { name: t.nav_gatherings, href: "#gatherings" },
+    { name: t.nav_rules, href: "#safety" },
+    { name: t.nav_findUs, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
 
   return (
     <>
@@ -48,8 +52,8 @@ export function Navbar() {
               </span>
             </a>
 
-            <div className="hidden md:flex items-center gap-8">
-              <ul className="flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6">
+              <ul className="flex items-center gap-5">
                 {NAV_LINKS.map((link) => (
                   <li key={link.name}>
                     <a
@@ -64,26 +68,52 @@ export function Navbar() {
                 ))}
               </ul>
 
+              <button
+                onClick={toggleLang}
+                className={`flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full border transition-all ${
+                  isScrolled
+                    ? "text-slate-700 border-slate-200 hover:border-primary/50 hover:text-primary dark:text-slate-200 dark:border-slate-700"
+                    : "text-white/80 border-white/20 hover:border-white/60 hover:text-white"
+                }`}
+                aria-label="Switch language"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                {t.lang_switch}
+              </button>
+
               <Button
                 asChild
                 className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 me-2" />
-                  انضم مجاناً
+                  {t.nav_joinFree}
                 </a>
               </Button>
             </div>
 
-            <button
-              className={`md:hidden z-50 p-2 rounded-full backdrop-blur-sm transition-colors ${
-                isScrolled ? "text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800" : "text-white hover:bg-white/20"
-              }`}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="فتح القائمة"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            <div className="flex items-center gap-3 md:hidden">
+              <button
+                onClick={toggleLang}
+                className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border transition-all ${
+                  isScrolled
+                    ? "text-slate-700 border-slate-200 dark:text-white dark:border-slate-700"
+                    : "text-white/80 border-white/20"
+                }`}
+              >
+                <Globe className="w-3 h-3" />
+                {t.lang_switch}
+              </button>
+              <button
+                className={`z-50 p-2 rounded-full backdrop-blur-sm transition-colors ${
+                  isScrolled ? "text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800" : "text-white hover:bg-white/20"
+                }`}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -115,7 +145,6 @@ export function Navbar() {
                 </motion.li>
               ))}
             </ul>
-
             <div className="mt-auto pb-8">
               <Button
                 asChild
@@ -124,7 +153,7 @@ export function Navbar() {
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 me-2" />
-                  انضم لمجموعة الواتساب
+                  {t.hero_cta}
                 </a>
               </Button>
             </div>
