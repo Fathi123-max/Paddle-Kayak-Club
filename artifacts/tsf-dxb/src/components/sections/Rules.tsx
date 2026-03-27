@@ -1,11 +1,13 @@
 // src/components/sections/Rules.tsx
-import { motion } from 'framer-motion';
+import { memo } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Waves, Users, Leaf } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-export function Rules() {
+export const Rules = memo(function Rules() {
   const { t, isAR } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const RULES = [
@@ -24,7 +26,7 @@ export function Rules() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1] }}
           className="text-center mb-24"
         >
           <span className="text-primary font-bold tracking-widest uppercase text-sm">{t.rules_label}</span>
@@ -41,7 +43,7 @@ export function Rules() {
                 key={idx}
                 initial={{ opacity: 0, x: isAR ? 40 : -40 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 + idx * 0.15 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 + idx * 0.15 }}
                 className="group relative bg-slate-50 dark:bg-slate-900 rounded-3xl p-10 md:p-12 border border-border/40 hover:border-primary/20 transition-all duration-500 overflow-hidden"
               >
                 {/* Gradient Background on Hover */}
@@ -73,7 +75,7 @@ export function Rules() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.8 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.8 }}
           className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-16 md:p-24 text-center relative overflow-hidden"
         >
           {/* Decorative Elements */}
@@ -89,4 +91,4 @@ export function Rules() {
       </div>
     </section>
   );
-}
+});

@@ -1,5 +1,6 @@
 // src/components/sections/Gatherings.tsx
-import { motion } from 'framer-motion';
+import { memo } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Sun, Users, Waves, Star, MessageCircle, Wind, Droplets, Thermometer, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -7,8 +8,9 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const WHATSAPP_URL = 'https://wa.me/971569431688';
 
-export function Gatherings() {
+export const Gatherings = memo(function Gatherings() {
   const { t, isAR } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const GATHERINGS = [
@@ -25,7 +27,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1] }}
           className="text-center mb-16 md:mb-24"
         >
           <span className="text-primary font-bold tracking-widest uppercase text-sm">{t.gatherings_label}</span>
@@ -37,7 +39,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
           className="bg-gradient-to-r from-primary/10 via-teal-500/8 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-12 mb-20 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto shadow-lg"
         >
           <div className="flex flex-col sm:flex-row items-center gap-8 text-center sm:text-start">
@@ -60,7 +62,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
           className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl mb-20 max-w-4xl mx-auto relative -top-8"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-6">
@@ -95,7 +97,7 @@ export function Gatherings() {
                 key={idx}
                 initial={{ opacity: 0, y: 60 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 + idx * 0.1 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 + idx * 0.1 }}
                 className="group relative bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 {/* Card Content */}
@@ -131,7 +133,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.9 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.9 }}
           className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 rounded-3xl p-10 md:p-14 border border-orange-200/60 dark:border-orange-900/40 shadow-lg mb-16"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
@@ -153,7 +155,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 1.0 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 1.0 }}
           className="bg-white dark:bg-slate-900 rounded-3xl p-12 md:p-16 border border-border/50 shadow-xl text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-5xl mb-6 block">🏄</span>
@@ -168,7 +170,7 @@ export function Gatherings() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 1.1 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 1.1 }}
           className="text-center"
         >
           <p className="text-muted-foreground mb-8 text-lg">{t.gatherings_bottom_note}</p>
@@ -182,4 +184,4 @@ export function Gatherings() {
       </div>
     </section>
   );
-}
+});

@@ -1,5 +1,6 @@
 // src/components/sections/Location.tsx
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { memo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { MapPin, ParkingCircle, Users, Navigation } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -7,11 +8,12 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 const MAP_SRC = 'https://maps.google.com/maps?q=25.318419070956256,55.34765853282304&z=17&output=embed';
 const MAP_HREF = 'https://maps.google.com/?q=25.318419070956256,55.34765853282304';
 
-export function Location() {
+export const Location = memo(function Location() {
   const { t, lang, isAR } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const mapSrc = `${MAP_SRC}&hl=${lang}`;
-  
+
   const { scrollY } = useScroll();
   const mapY = useTransform(scrollY, [0, 500], [0, 80]);
 
@@ -22,7 +24,7 @@ export function Location() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1] }}
           className="text-center mb-20"
         >
           <span className="text-primary font-bold tracking-widest uppercase text-sm">{t.location_label}</span>
@@ -32,7 +34,7 @@ export function Location() {
 
         {/* Map with Parallax */}
         <motion.div
-          style={{ y: mapY }}
+          style={{ y: prefersReducedMotion ? 0 : mapY }}
           className="mb-16"
         >
           <div className="overflow-hidden rounded-3xl shadow-2xl border border-border/50">
@@ -63,7 +65,7 @@ export function Location() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto -mt-32 relative z-10"
         >
           {/* Address Card */}
@@ -100,7 +102,7 @@ export function Location() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
           className="bg-gradient-to-br from-primary/8 to-teal-500/5 dark:from-primary/15 dark:to-teal-500/10 rounded-3xl p-10 md:p-12 border border-primary/10 max-w-4xl mx-auto mt-12"
         >
           <div className="flex items-start gap-6">
@@ -116,4 +118,4 @@ export function Location() {
       </div>
     </section>
   );
-}
+});

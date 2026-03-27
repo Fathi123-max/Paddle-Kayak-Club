@@ -1,5 +1,6 @@
 // src/components/sections/Hero.tsx
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { memo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -7,10 +8,11 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const WHATSAPP_URL = 'https://wa.me/971569431688';
 
-export function Hero() {
+export const Hero = memo(function Hero() {
   const { t, isAR } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
-  
+
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -25,6 +27,8 @@ export function Hero() {
         <img
           src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
           alt="Paddlers at golden hour on calm Dubai waters"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         {/* Gradient Overlay */}
@@ -47,7 +51,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.19, 1, 0.22, 1] }}
           >
             <span className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium tracking-widest uppercase">
               {t.hero_badge}
@@ -58,7 +62,7 @@ export function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
           >
             {t.hero_headline1}
@@ -73,7 +77,7 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-2xl font-light"
             style={{ lineHeight: isAR ? '2' : '1.8' }}
           >
@@ -84,7 +88,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1], delay: 0.6 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: [0.19, 1, 0.22, 1], delay: 0.6 }}
             className="flex flex-col sm:flex-row items-start gap-6"
           >
             <Button
@@ -109,7 +113,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.9 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 1, delay: 0.9 }}
             className="mt-20 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm"
           >
             <div>
@@ -131,21 +135,21 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : {}}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 1, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
+          transition={prefersReducedMotion ? {} : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            animate={prefersReducedMotion ? {} : { y: [0, 12, 0] }}
+            transition={prefersReducedMotion ? {} : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="w-1.5 h-1.5 rounded-full bg-white/60"
           />
         </motion.div>
       </motion.div>
     </section>
   );
-}
+});
