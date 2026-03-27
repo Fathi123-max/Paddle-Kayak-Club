@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { name: "Find Us", href: "#contact" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/971544667458";
+const WHATSAPP_URL = "https://wa.me/971569431688";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

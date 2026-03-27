@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Activities } from "@/components/sections/Activities";
 import { Safety } from "@/components/sections/Safety";
 import { About } from "@/components/sections/About";
+import { Location } from "@/components/sections/Location";
 
 export default function Home() {
   return (
@@ -12,9 +13,10 @@ export default function Home() {
       
       <main>
         <Hero />
-        <Activities />
-        <Safety />
         <About />
+        <Activities />
+        <Location />
+        <Safety />
       </main>
 
       <Footer />

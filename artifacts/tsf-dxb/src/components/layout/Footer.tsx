@@ -1,7 +1,7 @@
 import { MapPin, Instagram, Heart, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "https://wa.me/971544667458";
+const WHATSAPP_URL = "https://wa.me/971569431688";
 
 export function Footer() {
   return (
@@ -18,8 +18,11 @@ export function Footer() {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-snug">
               Ready to paddle with us<br />this weekend?
             </h2>
-            <p className="text-slate-300 text-lg max-w-md mx-auto mb-8 leading-relaxed">
-              No sign-up forms. No fees. Just message us and come join the crew. The water is waiting.
+            <p className="text-slate-300 text-lg max-w-md mx-auto mb-2 leading-relaxed">
+              No sign-up forms. No fees. Just message us and come join the crew.
+            </p>
+            <p className="text-slate-400 text-sm mb-8">
+              📍 Al Mamzar Beach Park · Every Saturday & Sunday · 6:00 AM
             </p>
             <Button
               asChild
@@ -62,6 +65,7 @@ export function Footer() {
             <ul className="flex flex-col gap-4 text-sm">
               <li><a href="#story" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Story</a></li>
               <li><a href="#gatherings" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Our Gatherings</a></li>
+              <li><a href="#location" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Location & Map</a></li>
               <li><a href="#safety" className="hover:text-primary transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/40" /> Rules of the Water</a></li>
             </ul>
           </div>
@@ -75,14 +79,14 @@ export function Footer() {
                   <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
                     <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   </div>
-                  WhatsApp · +971 54 466 7458
+                  WhatsApp · +971 56 943 1688
                 </a>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <div className="w-9 h-9 rounded-full bg-white/8 flex items-center justify-center">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                Dubai, United Arab Emirates
+                Al Mamzar Beach Park, Dubai
               </li>
               <li>
                 <a href="https://instagram.com/tsf_dxb" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-3">

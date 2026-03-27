@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_URL = "https://wa.me/971544667458";
+const WHATSAPP_URL = "https://wa.me/971569431688";
 
 export function Hero() {
   return (
