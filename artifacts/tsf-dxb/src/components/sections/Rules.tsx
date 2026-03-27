@@ -54,7 +54,7 @@ export function Rules() {
                       {rule.number}
                     </span>
                     <div className={`w-20 h-20 rounded-2xl ${rule.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500`}>
-                      <Icon className={`w-10 h-10 ${rule.iconColor}`} />
+                      <Icon className={`w-10 h-10 ${rule.iconColor} ${isAR ? 'rtl-mirror' : ''}`} />
                     </div>
                   </div>
                   

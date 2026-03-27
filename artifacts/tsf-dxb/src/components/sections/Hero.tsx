@@ -93,7 +93,7 @@ export function Hero() {
               className="h-16 px-10 rounded-full font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] transition-all duration-600 border-none hover:shadow-[0_0_60px_-5px_rgba(37,211,102,0.8)] hover:-translate-y-1"
             >
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="me-3 w-6 h-6" />
+                <MessageCircle className={`me-3 w-6 h-6 ${isAR ? 'rtl-mirror' : ''}`} />
                 {t.hero_cta}
               </a>
             </Button>

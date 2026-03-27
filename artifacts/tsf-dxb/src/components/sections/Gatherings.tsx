@@ -50,7 +50,7 @@ export function Gatherings() {
           </div>
           <Button asChild className="rounded-full font-bold px-10 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shrink-0">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5 me-2" />
+              <MessageCircle className={`w-5 h-5 me-2 ${isAR ? 'rtl-mirror' : ''}`} />
               {t.schedule_rsvp}
             </a>
           </Button>
@@ -77,7 +77,7 @@ export function Gatherings() {
               { icon: Thermometer, bg: 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900', color: 'text-amber-500', val: t.temp_value, unit: t.temp_unit, desc: t.temp_desc },
             ].map(({ icon: Icon, bg, color, val, unit, desc }, i) => (
               <div key={i} className={`flex flex-col items-center gap-3 ${bg} rounded-2xl p-4 sm:p-6 border`}>
-                <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${color}`} />
+                <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${color} ${isAR ? 'rtl-mirror' : ''}`} />
                 <span className="text-xl sm:text-2xl font-display font-black text-foreground">{val}</span>
                 <span className="text-xs text-muted-foreground font-medium text-center">{unit}<br /><span className={`${color} font-semibold`}>{desc}</span></span>
               </div>
@@ -174,7 +174,7 @@ export function Gatherings() {
           <p className="text-muted-foreground mb-8 text-lg">{t.gatherings_bottom_note}</p>
           <Button asChild size="lg" className="rounded-full h-16 px-12 font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white border-none shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] hover:shadow-[0_0_60px_-5px_rgba(37,211,102,0.8)] hover:-translate-y-1 transition-all duration-300">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-6 h-6 me-2" />
+              <MessageCircle className={`w-6 h-6 me-2 ${isAR ? 'rtl-mirror' : ''}`} />
               {t.gatherings_cta}
             </a>
           </Button>

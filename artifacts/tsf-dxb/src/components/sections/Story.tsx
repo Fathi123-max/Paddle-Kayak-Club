@@ -88,7 +88,7 @@ export function Story() {
                   className={`${bg} rounded-2xl p-8 border border-border/40`}
                 >
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${color} bg-white/60 dark:bg-white/10`}>
-                    <Icon className="w-6 h-6" />
+                    <Icon className={`w-6 h-6 ${isAR ? 'rtl-mirror' : ''}`} />
                   </div>
                   <h3 className="font-display font-bold text-foreground text-2xl mb-3">{title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">{body}</p>
