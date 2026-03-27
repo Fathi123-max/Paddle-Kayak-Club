@@ -2,6 +2,7 @@ import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { GrainOverlay } from "@/components/effects/GrainOverlay";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 
@@ -34,6 +35,7 @@ function App() {
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
+      <GrainOverlay opacity={0.03} />
     </QueryClientProvider>
   );
 }
