@@ -62,9 +62,9 @@ export const Story = memo(function Story() {
               className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-2xl shadow-2xl"
             />
             {/* Overlay Card */}
-            <div className="absolute -bottom-8 -right-8 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-8 rounded-xl shadow-xl max-w-xs">
-              <p className="text-primary font-display font-bold text-2xl mb-2">500+</p>
-              <p className="text-muted-foreground text-sm">Active community members</p>
+            <div className="absolute bottom-4 right-4 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl max-w-[200px] md:max-w-xs">
+              <p className="text-primary font-display font-bold text-xl md:text-2xl mb-1">500+</p>
+              <p className="text-muted-foreground text-xs md:text-sm">Active community members</p>
             </div>
           </motion.div>
 

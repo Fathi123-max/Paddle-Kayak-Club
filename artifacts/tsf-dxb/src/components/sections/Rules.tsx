@@ -53,7 +53,7 @@ export const Rules = memo(function Rules() {
                 <div className="flex flex-col sm:flex-row gap-8 relative z-10">
                   {/* Left: Number + Icon */}
                   <div className="flex items-start gap-6 shrink-0">
-                    <span className="text-[80px] sm:text-[120px] md:text-[200px] font-display font-black text-border/60 group-hover:text-primary/20 transition-colors duration-500 leading-none select-none" aria-hidden="true">
+                    <span className="text-[60px] sm:text-[80px] md:text-[120px] lg:text-[200px] font-display font-black text-border/60 group-hover:text-primary/20 transition-colors duration-500 leading-none select-none" aria-hidden="true">
                       {rule.number}
                     </span>
                     <div className={`w-20 h-20 rounded-2xl ${rule.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500`}>

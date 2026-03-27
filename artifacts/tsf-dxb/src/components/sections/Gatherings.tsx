@@ -71,7 +71,7 @@ export const Gatherings = memo(function Gatherings() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
-          className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl mb-20 max-w-4xl mx-auto relative -top-8"
+          className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl mb-20 max-w-4xl mx-auto relative -top-4 sm:-top-6 md:-top-8"
           role="region"
           aria-label="Current weather conditions"
         >

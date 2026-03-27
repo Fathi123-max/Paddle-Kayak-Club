@@ -47,7 +47,7 @@ export const Hero = memo(function Hero() {
         className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-20"
       >
         {/* Asymmetric Layout - Text positioned left */}
-        <div className={`${isAR ? 'text-right' : 'text-left'} pl-0 md:pl-[10%]`}>
+        <div className={`${isAR ? 'text-right pr-6 sm:pr-8 md:pr-12' : 'text-left pl-6 sm:pl-8 md:pl-12'} md:pl-[10%] md:pr-[10%]`}>
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -67,12 +67,12 @@ export const Location = memo(function Location() {
           initial={{ opacity: 0, y: 60 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto -mt-32 relative z-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto -mt-16 sm:-mt-24 md:-mt-32 relative z-10"
           role="list"
           aria-label="Location information"
         >
           {/* Address Card */}
-          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl" role="listitem">
+          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-border/50 shadow-2xl" role="listitem">
             <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
               <MapPin className="w-7 h-7 text-primary" aria-hidden="true" />
             </div>
@@ -81,7 +81,7 @@ export const Location = memo(function Location() {
           </div>
 
           {/* Parking Card */}
-          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl" role="listitem">
+          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-border/50 shadow-2xl" role="listitem">
             <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-6">
               <ParkingCircle className="w-7 h-7 text-amber-500" aria-hidden="true" />
             </div>
@@ -90,7 +90,7 @@ export const Location = memo(function Location() {
           </div>
 
           {/* Meet Point Card */}
-          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl" role="listitem">
+          <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-border/50 shadow-2xl" role="listitem">
             <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6">
               <Users className="w-7 h-7 text-secondary" aria-hidden="true" />
             </div>
