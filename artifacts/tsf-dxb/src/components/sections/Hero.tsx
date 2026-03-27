@@ -18,11 +18,12 @@ export const Hero = memo(function Hero() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden" aria-label="Hero section">
       {/* Background Image with Parallax */}
       <motion.div
         style={{ y: y1 }}
         className="absolute inset-0 z-0"
+        aria-hidden="true"
       >
         <img
           src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
@@ -32,7 +33,7 @@ export const Hero = memo(function Hero() {
           className="w-full h-full object-cover"
         />
         {/* Gradient Overlay */}
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             background: 'linear-gradient(135deg, hsl(217 91% 18% / 0.85) 0%, hsl(217 91% 18% / 0.65) 50%, hsl(35 100% 96% / 0.1) 100%)',
@@ -94,16 +95,22 @@ export const Hero = memo(function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-16 px-10 rounded-full font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] transition-all duration-600 border-none hover:shadow-[0_0_60px_-5px_rgba(37,211,102,0.8)] hover:-translate-y-1"
+              className="h-16 px-10 rounded-full font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] transition-all duration-600 border-none hover:shadow-[0_0_60px_-5px_rgba(37,211,102,0.8)] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
             >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join us on WhatsApp"
+              >
                 <MessageCircle className={`me-3 w-6 h-6 ${isAR ? 'rtl-mirror' : ''}`} />
                 {t.hero_cta}
               </a>
             </Button>
             <a
               href="#gatherings"
-              className="text-white/70 hover:text-white transition-colors duration-300 text-base font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
+              className="text-white/70 hover:text-white transition-colors duration-300 text-base font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white/70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+              aria-label="Scroll to Gatherings section"
             >
               {t.hero_secondary}
             </a>
@@ -115,16 +122,18 @@ export const Hero = memo(function Hero() {
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: prefersReducedMotion ? 0 : 1, delay: 0.9 }}
             className="mt-20 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm"
+            role="list"
+            aria-label="Community statistics"
           >
-            <div>
+            <div role="listitem">
               <span className="text-white font-medium">{t.hero_stat1}</span>
             </div>
-            <span className="text-white/30 hidden sm:block">·</span>
-            <div>
+            <span className="text-white/30 hidden sm:block" aria-hidden="true">·</span>
+            <div role="listitem">
               <span className="text-white font-medium">{t.hero_stat2}</span>
             </div>
-            <span className="text-white/30 hidden sm:block">·</span>
-            <div>
+            <span className="text-white/30 hidden sm:block" aria-hidden="true">·</span>
+            <div role="listitem">
               <span className="text-white font-medium">{t.hero_stat3}</span>
             </div>
           </motion.div>
@@ -137,6 +146,7 @@ export const Hero = memo(function Hero() {
         animate={isVisible ? { opacity: 1 } : {}}
         transition={{ duration: prefersReducedMotion ? 0 : 1, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        aria-hidden="true"
       >
         <motion.div
           animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
