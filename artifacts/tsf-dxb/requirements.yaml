@@ -1,0 +1,12 @@
+packages:
+  "framer-motion": "For premium scroll animations, page transitions, and staggered reveals"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes without style conflicts"
+
+images: []
+
+notes:
+  - "The application uses native CSS smooth scrolling for anchor links."
+  - "Framer motion is used extensively for entering animations as elements scroll into view."
+  - "All WhatsApp links are hardcoded to the requested number: +971544667458."
+  - "Assuming shadcn UI components (button, card, sheet) are present based on the provided directory structure."
