@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -142,9 +142,59 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    direction: ltr;
+  }
+
+  /* RTL support for Arabic */
+  html[lang="ar"] {
     direction: rtl;
   }
-  
+
+  html[lang="ar"] * {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    line-height: 2;
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6 {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  html[lang="ar"] body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Better Arabic typography */
+  html[lang="ar"] p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  html[lang="ar"] .text-balance {
+    text-wrap: balance;
+  }
+
+  /* RTL-specific margin and padding adjustments */
+  html[lang="ar"] .ms-auto {
+    margin-inline-start: auto;
+  }
+
+  html[lang="ar"] .me-auto {
+    margin-inline-end: auto;
+  }
+
+  /* Better Arabic text alignment */
+  html[lang="ar"] .text-start {
+    text-align: start;
+  }
+
   * {
     @apply border-border;
   }

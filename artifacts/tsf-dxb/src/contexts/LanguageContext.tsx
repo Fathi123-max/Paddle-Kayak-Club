@@ -30,8 +30,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const html = document.documentElement;
     html.lang = lang;
     html.dir = t.dir;
+    
+    // Set font CSS variables
     html.style.setProperty("--font-sans", t.fontSans);
     html.style.setProperty("--font-display", t.fontDisplay);
+    
+    // Add/remove RTL class for additional styling hooks
+    if (lang === "ar") {
+      html.classList.add("rtl");
+      html.classList.remove("ltr");
+    } else {
+      html.classList.add("ltr");
+      html.classList.remove("rtl");
+    }
   }, [lang]);
 
   const t = translations[lang] as T;
