@@ -58,7 +58,7 @@ export function Navbar() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className={`text-sm font-semibold transition-colors hover:text-primary ${
+                      className={`text-sm font-semibold transition-all duration-300 hover:text-primary ${
                         isScrolled ? "text-slate-700 dark:text-slate-200" : "text-white/90"
                       }`}
                     >
@@ -70,7 +70,7 @@ export function Navbar() {
 
               <button
                 onClick={toggleLang}
-                className={`flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full border transition-all ${
+                className={`flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full border transition-all duration-300 ${
                   isScrolled
                     ? "text-slate-700 border-slate-200 hover:border-primary/50 hover:text-primary dark:text-slate-200 dark:border-slate-700"
                     : "text-white/80 border-white/20 hover:border-white/60 hover:text-white"
@@ -83,7 +83,7 @@ export function Navbar() {
 
               <Button
                 asChild
-                className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
+                className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 me-2" />
@@ -95,7 +95,7 @@ export function Navbar() {
             <div className="flex items-center gap-3 md:hidden">
               <button
                 onClick={toggleLang}
-                className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border transition-all ${
+                className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border transition-all duration-300 ${
                   isScrolled
                     ? "text-slate-700 border-slate-200 dark:text-white dark:border-slate-700"
                     : "text-white/80 border-white/20"
@@ -105,7 +105,7 @@ export function Navbar() {
                 {t.lang_switch}
               </button>
               <button
-                className={`z-50 p-2 rounded-full backdrop-blur-sm transition-colors ${
+                className={`z-50 p-2 rounded-full backdrop-blur-sm transition-all duration-300 ${
                   isScrolled ? "text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800" : "text-white hover:bg-white/20"
                 }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
