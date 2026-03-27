@@ -51,93 +51,155 @@
 }
 
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
-  --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
-
-  /* Deep Oceanic & Clean Aesthetic */
-  --background: 210 40% 98%;
-  --foreground: 202 80% 14%;
-  
-  --border: 214 32% 91%;
-  
-  --card: 0 0% 100%;
-  --card-foreground: 202 80% 14%;
-  --card-border: 214 32% 91%;
-
-  --popover: 0 0% 100%;
-  --popover-foreground: 202 80% 14%;
-  --popover-border: 214 32% 91%;
-
-  /* Primary: Teal / Ocean Blue */
-  --primary: 199 89% 48%;
+  /* Primary: Deep Oceanic Navy */
+  --primary: 217 91% 18%;        /* #0A2540 */
+  --primary-light: 217 91% 28%;  /* #16406B */
+  --primary-dark: 217 91% 12%;   /* #051626 */
+  --primary-fade: 217 91% 18% / 0.08;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: UAE Green Accent */
+  /* Warm Sand - for warmth and contrast */
+  --sand: 35 100% 96%;           /* #FFF9F0 */
+  --sand-dark: 35 60% 92%;       /* #F5E6D3 */
+  --sand-light: 35 100% 98%;     /* #FFFCF5 */
+
+  /* Crisp White */
+  --white: 0 0% 100%;
+  --off-white: 210 40% 98%;      /* #F8FAFC */
+
+  /* Bronze/Gold - luxury accent */
+  --bronze: 38 92% 58%;          /* #D4A574 */
+  --bronze-light: 38 92% 68%;    /* #E5C5A3 */
+  --bronze-dark: 38 92% 48%;     /* #C4956A */
+  --bronze-fade: 38 92% 58% / 0.12;
+
+  /* UAE Green - heritage accent (sparingly) */
+  --uae-green: 150 100% 24%;     /* #00734F */
+  --uae-green-light: 150 100% 34%;
+
+  /* Sunset Coral - warm accent */
+  --coral: 12 85% 65%;           /* #FF8B6B */
+  --coral-light: 12 85% 75%;
+
+  /* Text Colors */
+  --text-primary: 217 91% 12%;   /* #051626 */
+  --text-secondary: 215 28% 35%; /* #6B7280 */
+  --text-tertiary: 215 16% 55%;  /* #9CA3AF */
+  --text-inverse: 0 0% 100%;
+
+  /* Borders */
+  --border-light: 214 32% 91%;
+  --border-medium: 215 28% 75%;
+  --border-dark: 215 28% 55%;
+
+  /* Backgrounds */
+  --background: 35 100% 96%;
+  --background-alt: 210 40% 98%;
+  --foreground: 217 91% 12%;
+
+  /* Cards, Popover, etc. */
+  --card: 0 0% 100%;
+  --card-foreground: 217 91% 12%;
+  --card-border: 214 32% 91%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 217 91% 12%;
+  --popover-border: 214 32% 91%;
+
+  /* Secondary */
   --secondary: 150 100% 24%;
   --secondary-foreground: 0 0% 100%;
+  --secondary-border: 150 100% 34%;
 
-  /* Muted: Soft slate for backgrounds */
+  /* Muted */
   --muted: 210 40% 96%;
   --muted-foreground: 215 16% 47%;
+  --muted-border: 214 32% 91%;
 
-  /* Accent: UAE Red */
-  --accent: 360 100% 40%;
+  /* Accent (Bronze) */
+  --accent: 38 92% 58%;
   --accent-foreground: 0 0% 100%;
+  --accent-border: 38 92% 68%;
 
+  /* Destructive */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
+  --destructive-border: 0 84% 70%;
 
+  /* Input & Ring */
   --input: 214 32% 91%;
-  --ring: 199 89% 48%;
+  --ring: 38 92% 58%;
 
+  /* Radius */
   --radius: 1rem;
-  
+
+  /* Hero gradient overlay */
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(217 91% 18% / 0.85) 0%,
+    hsl(217 91% 18% / 0.65) 50%,
+    hsl(35 100% 96% / 0.1) 100%
+  );
+
+  /* Subtle background mesh */
+  --gradient-mesh: 
+    radial-gradient(
+      ellipse at 30% 20%,
+      hsl(38 92% 58% / 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 70% 80%,
+      hsl(217 91% 18% / 0.06) 0%,
+      transparent 50%
+    );
+
+  /* Card hover glow */
+  --gradient-glow: radial-gradient(
+    ellipse at center,
+    hsl(38 92% 58% / 0.15) 0%,
+    transparent 70%
+  );
+
+  /* Bronze shimmer */
+  --gradient-bronze: linear-gradient(
+    135deg,
+    hsl(38 92% 58%) 0%,
+    hsl(38 92% 68%) 50%,
+    hsl(38 92% 58%) 100%
+  );
+
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / 1);
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / 1);
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / 1);
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / 1);
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / 1);
 }
 
 .dark {
-  --background: 202 80% 6%;
-  --foreground: 210 40% 98%;
-  
+  --background: 217 91% 8%;
+  --background-alt: 217 91% 12%;
+  --foreground: 35 100% 96%;
   --border: 215 28% 17%;
-  
-  --card: 202 80% 10%;
-  --card-foreground: 210 40% 98%;
+  --border-light: 215 28% 22%;
+  --card: 217 91% 10%;
+  --card-foreground: 35 100% 96%;
   --card-border: 215 28% 17%;
-
-  --popover: 202 80% 10%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 217 91% 10%;
+  --popover-foreground: 35 100% 96%;
   --popover-border: 215 28% 17%;
-
-  --primary: 199 89% 48%;
+  --primary: 217 91% 28%;
+  --primary-light: 217 91% 38%;
+  --primary-dark: 217 91% 18%;
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 150 100% 24%;
+  --secondary: 150 100% 34%;
   --secondary-foreground: 0 0% 100%;
-
   --muted: 215 28% 17%;
   --muted-foreground: 215 16% 65%;
-
-  --accent: 360 100% 40%;
+  --accent: 38 92% 68%;
   --accent-foreground: 0 0% 100%;
-
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-
+  --destructive-foreground: 0 0% 100%;
   --input: 215 28% 17%;
-  --ring: 199 89% 48%;
+  --ring: 38 92% 68%;
 }
 
 @layer base {
