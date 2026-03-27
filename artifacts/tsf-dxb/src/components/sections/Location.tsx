@@ -40,7 +40,7 @@ export function Location() {
               title="Al Mamzar Beach Park, Dubai"
               src={mapSrc}
               width="100%"
-              height="500"
+              height="400"
               style={{ border: 0, display: 'block', filter: 'grayscale(0.3) contrast(1.1) brightness(0.95)' }}
               allowFullScreen
               loading="lazy"
@@ -64,7 +64,7 @@ export function Location() {
           initial={{ opacity: 0, y: 60 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto -mt-32 relative z-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto -mt-32 relative z-10"
         >
           {/* Address Card */}
           <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-border/50 shadow-2xl">

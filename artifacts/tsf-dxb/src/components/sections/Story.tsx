@@ -42,7 +42,7 @@ export function Story() {
         </motion.div>
 
         {/* Split-Screen Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
           {/* Left: Editorial Image */}
           <motion.div
             initial={{ opacity: 0, x: isAR ? 40 : -40 }}
@@ -53,7 +53,7 @@ export function Story() {
             <img
               src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
               alt="Paddle community at sunrise"
-              className="w-full h-[600px] object-cover rounded-2xl shadow-2xl"
+              className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-2xl shadow-2xl"
             />
             {/* Overlay Card */}
             <div className="absolute -bottom-8 -right-8 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-8 rounded-xl shadow-xl max-w-xs">

@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
           >
             {t.hero_headline1}
             <span className="block">
@@ -74,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-2xl font-light"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-2xl font-light"
             style={{ lineHeight: isAR ? '2' : '1.8' }}
           >
             {t.hero_sub}

@@ -19,7 +19,7 @@ export function Gatherings() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative">
+    <section ref={ref} className="py-[80px] sm:py-[120px] md:py-[160px] lg:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Header */}
         <motion.div
@@ -70,15 +70,15 @@ export function Gatherings() {
             </div>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold border border-secondary/20">{t.conditions_badge}</span>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { icon: Wind, bg: 'bg-sky-50 dark:bg-sky-950/30 border-sky-100 dark:border-sky-900', color: 'text-sky-500', val: t.wind_value, unit: t.wind_unit, desc: t.wind_desc },
               { icon: Droplets, bg: 'bg-teal-50 dark:bg-teal-950/30 border-teal-100 dark:border-teal-900', color: 'text-teal-500', val: t.water_value, unit: t.water_unit, desc: t.water_desc },
               { icon: Thermometer, bg: 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900', color: 'text-amber-500', val: t.temp_value, unit: t.temp_unit, desc: t.temp_desc },
             ].map(({ icon: Icon, bg, color, val, unit, desc }, i) => (
-              <div key={i} className={`flex flex-col items-center gap-3 ${bg} rounded-2xl p-6 border`}>
-                <Icon className={`w-8 h-8 ${color}`} />
-                <span className="text-2xl font-display font-black text-foreground">{val}</span>
+              <div key={i} className={`flex flex-col items-center gap-3 ${bg} rounded-2xl p-4 sm:p-6 border`}>
+                <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${color}`} />
+                <span className="text-xl sm:text-2xl font-display font-black text-foreground">{val}</span>
                 <span className="text-xs text-muted-foreground font-medium text-center">{unit}<br /><span className={`${color} font-semibold`}>{desc}</span></span>
               </div>
             ))}
