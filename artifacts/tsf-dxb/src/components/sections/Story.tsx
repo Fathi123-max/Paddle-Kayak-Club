@@ -17,10 +17,10 @@ export const Story = memo(function Story() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden">
+    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Our story section">
       {/* Background Gradients */}
-      <div className="absolute top-0 start-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 end-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 start-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
+      <div className="absolute bottom-0 end-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Header - Editorial Scale */}
@@ -84,7 +84,7 @@ export const Story = memo(function Story() {
             </p>
 
             {/* Story Cards - Vertical Stack */}
-            <div className="space-y-8">
+            <div className="space-y-8" role="list" aria-label="Community features">
               {cards.map(({ icon: Icon, color, bg, title, body }, idx) => (
                 <motion.div
                   key={idx}
@@ -92,9 +92,10 @@ export const Story = memo(function Story() {
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.6 + idx * 0.15 }}
                   className={`${bg} rounded-2xl p-8 border border-border/40`}
+                  role="listitem"
                 >
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${color} bg-white/60 dark:bg-white/10`}>
-                    <Icon className={`w-6 h-6 ${isAR ? 'rtl-mirror' : ''}`} />
+                    <Icon className={`w-6 h-6 ${isAR ? 'rtl-mirror' : ''}`} aria-hidden="true" />
                   </div>
                   <h3 className="font-display font-bold text-foreground text-2xl mb-3">{title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">{body}</p>
@@ -110,13 +111,14 @@ export const Story = memo(function Story() {
           animate={isVisible ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 1.2 }}
           className="bg-gradient-to-br from-primary/8 to-teal-500/5 rounded-3xl p-12 md:p-20 text-center border border-primary/10 relative"
+          role="blockquote"
         >
-          <div className="absolute top-0 left-8 md:left-12 text-8xl text-primary/20 font-serif leading-none">"</div>
+          <div className="absolute top-0 left-8 md:left-12 text-8xl text-primary/20 font-serif leading-none" aria-hidden="true">"</div>
           <p className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground leading-snug mb-6 relative z-10">
             {t.story_quote}
           </p>
           <p className="text-muted-foreground text-xl relative z-10">{t.story_quote_sub}</p>
-          <div className="absolute bottom-0 right-8 md:right-12 text-8xl text-primary/20 font-serif leading-none rotate-180">"</div>
+          <div className="absolute bottom-0 right-8 md:right-12 text-8xl text-primary/20 font-serif leading-none rotate-180" aria-hidden="true">"</div>
         </motion.div>
       </div>
     </section>
