@@ -17,9 +17,9 @@ export const Rules = memo(function Rules() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden">
+    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Community rules section">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_end,_var(--tw-gradient-stops))] from-primary/4 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_end,_var(--tw-gradient-stops))] from-primary/4 via-transparent to-transparent" aria-hidden="true" />
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Header */}
@@ -35,7 +35,7 @@ export const Rules = memo(function Rules() {
         </motion.div>
 
         {/* Rules Cards - Stacked */}
-        <div className="space-y-6 mb-20">
+        <div className="space-y-6 mb-20" role="list" aria-label="Community guidelines">
           {RULES.map((rule, idx) => {
             const Icon = rule.icon;
             return (
@@ -45,21 +45,22 @@ export const Rules = memo(function Rules() {
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 + idx * 0.15 }}
                 className="group relative bg-slate-50 dark:bg-slate-900 rounded-3xl p-10 md:p-12 border border-border/40 hover:border-primary/20 transition-all duration-500 overflow-hidden"
+                role="listitem"
               >
                 {/* Gradient Background on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
+
                 <div className="flex flex-col sm:flex-row gap-8 relative z-10">
                   {/* Left: Number + Icon */}
                   <div className="flex items-start gap-6 shrink-0">
-                    <span className="text-[80px] sm:text-[120px] md:text-[200px] font-display font-black text-border/60 group-hover:text-primary/20 transition-colors duration-500 leading-none select-none">
+                    <span className="text-[80px] sm:text-[120px] md:text-[200px] font-display font-black text-border/60 group-hover:text-primary/20 transition-colors duration-500 leading-none select-none" aria-hidden="true">
                       {rule.number}
                     </span>
                     <div className={`w-20 h-20 rounded-2xl ${rule.iconBg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500`}>
-                      <Icon className={`w-10 h-10 ${rule.iconColor} ${isAR ? 'rtl-mirror' : ''}`} />
+                      <Icon className={`w-10 h-10 ${rule.iconColor} ${isAR ? 'rtl-mirror' : ''}`} aria-hidden="true" />
                     </div>
                   </div>
-                  
+
                   {/* Right: Content */}
                   <div className={`${isAR ? 'text-right' : 'text-left'}`}>
                     <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">{rule.title}</h3>
@@ -77,16 +78,17 @@ export const Rules = memo(function Rules() {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.8 }}
           className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-16 md:p-24 text-center relative overflow-hidden"
+          role="blockquote"
         >
           {/* Decorative Elements */}
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent pointer-events-none" />
-          <div className="absolute top-8 left-12 text-9xl text-white/10 font-serif leading-none">"</div>
-          
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-8 left-12 text-9xl text-white/10 font-serif leading-none" aria-hidden="true">"</div>
+
           <p className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-6 relative z-10">
             {t.rules_quote}
           </p>
-          
-          <div className="absolute bottom-8 right-12 text-9xl text-white/10 font-serif leading-none rotate-180">"</div>
+
+          <div className="absolute bottom-8 right-12 text-9xl text-white/10 font-serif leading-none rotate-180" aria-hidden="true">"</div>
         </motion.div>
       </div>
     </section>
