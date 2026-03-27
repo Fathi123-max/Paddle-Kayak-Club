@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NAV_LINKS = [
   { name: "Home", href: "#" },
-  { name: "Activities", href: "#activities" },
+  { name: "Sessions", href: "#activities" },
   { name: "About", href: "#about" },
   { name: "Safety", href: "#safety" },
   { name: "Contact", href: "#contact" },
@@ -42,9 +41,9 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 z-50 group">
-              <img 
-                src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`} 
-                alt="TSF DXB Logo" 
+              <img
+                src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`}
+                alt="TSF DXB Logo"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               <span className={`font-display font-bold text-xl hidden sm:block transition-colors duration-300 ${isScrolled ? "text-slate-900 dark:text-white" : "text-white"}`}>
@@ -68,15 +67,15 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
-              
-              <Button 
-                asChild 
+
+              <Button
+                asChild
                 className="rounded-full font-bold px-6 shadow-lg hover:shadow-xl transition-all"
                 style={{ backgroundColor: 'hsl(199 89% 48%)', color: 'white' }}
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 mr-2" />
-                  Book Now
+                  Join for Free
                 </a>
               </Button>
             </div>
@@ -107,7 +106,7 @@ export function Navbar() {
           >
             <ul className="flex flex-col gap-6 text-center mt-8">
               {NAV_LINKS.map((link) => (
-                <motion.li 
+                <motion.li
                   key={link.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -123,17 +122,17 @@ export function Navbar() {
                 </motion.li>
               ))}
             </ul>
-            
+
             <div className="mt-auto pb-8">
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="w-full rounded-2xl font-bold text-lg h-14"
                 style={{ backgroundColor: 'hsl(199 89% 48%)', color: 'white' }}
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  Chat on WhatsApp
+                  Join the Community — Free!
                 </a>
               </Button>
             </div>
