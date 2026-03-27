@@ -42,6 +42,10 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-destructive-border: var(--destructive-border);
 
+  --color-bronze: hsl(38 92% 58%);
+  --color-bronze-light: hsl(38 92% 68%);
+  --color-bronze-dark: hsl(38 92% 48%);
+
   --font-sans: 'Satoshi', 'IBM Plex Sans Arabic', sans-serif;
   --font-display: 'Playfair Display', 'Noto Naskh Arabic', serif;
 

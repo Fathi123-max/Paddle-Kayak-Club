@@ -1,89 +1,151 @@
-import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+// src/components/sections/Hero.tsx
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const WHATSAPP_URL = "https://wa.me/971569431688";
+const WHATSAPP_URL = 'https://wa.me/971569431688';
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, isAR } = useLanguage();
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      <img
-        src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
-        alt="Paddlers at golden hour on calm Dubai waters"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-900/50 to-slate-950/85" />
+    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* Background Image with Parallax */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute inset-0 z-0"
+      >
+        <img
+          src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
+          alt="Paddlers at golden hour on calm Dubai waters"
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, hsl(217 91% 18% / 0.85) 0%, hsl(217 91% 18% / 0.65) 50%, hsl(35 100% 96% / 0.1) 100%)',
+          }}
+        />
+      </motion.div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 pt-20 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/80 text-sm font-medium mb-8 tracking-wide">
-            {t.hero_badge}
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-white leading-[1.15] tracking-tight mb-8"
-        >
-          {t.hero_headline1}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-300 to-sky-400">
-            {t.hero_headline2}
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-xl md:text-2xl text-slate-200/90 leading-loose mb-12 max-w-2xl mx-auto font-light"
-        >
-          {t.hero_sub}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="h-16 px-10 rounded-full font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] transition-all border-none"
+      {/* Content */}
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-20"
+      >
+        {/* Asymmetric Layout - Text positioned left */}
+        <div className={`${isAR ? 'text-right' : 'text-left'} pl-0 md:pl-[10%]`}>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
           >
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="me-3 w-6 h-6" />
-              {t.hero_cta}
+            <span className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium tracking-widest uppercase">
+              {t.hero_badge}
+            </span>
+          </motion.div>
+
+          {/* Headline - Massive Editorial Scale */}
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
+          >
+            {t.hero_headline1}
+            <span className="block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-bronze-light via-bronze to-bronze-light">
+                {t.hero_headline2}
+              </span>
+            </span>
+          </motion.h1>
+
+          {/* Subhead */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.4 }}
+            className="text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-2xl font-light"
+            style={{ lineHeight: isAR ? '2' : '1.8' }}
+          >
+            {t.hero_sub}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1], delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-start gap-6"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="h-16 px-10 rounded-full font-bold text-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[0_0_50px_-10px_rgba(37,211,102,0.6)] transition-all duration-600 border-none hover:shadow-[0_0_60px_-5px_rgba(37,211,102,0.8)] hover:-translate-y-1"
+            >
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="me-3 w-6 h-6" />
+                {t.hero_cta}
+              </a>
+            </Button>
+            <a
+              href="#gatherings"
+              className="text-white/70 hover:text-white transition-colors duration-300 text-base font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
+            >
+              {t.hero_secondary}
             </a>
-          </Button>
-          <a
-            href="#gatherings"
-            className="text-white/70 hover:text-white transition-colors text-base font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="mt-20 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm"
           >
-            {t.hero_secondary}
-          </a>
-        </motion.div>
+            <div>
+              <span className="text-white font-medium">{t.hero_stat1}</span>
+            </div>
+            <span className="text-white/30 hidden sm:block">·</span>
+            <div>
+              <span className="text-white font-medium">{t.hero_stat2}</span>
+            </div>
+            <span className="text-white/30 hidden sm:block">·</span>
+            <div>
+              <span className="text-white font-medium">{t.hero_stat3}</span>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : {}}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.9 }}
-          className="mt-20 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-400 font-medium"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
         >
-          <span>{t.hero_stat1}</span>
-          <span className="text-slate-600 hidden sm:block">·</span>
-          <span>{t.hero_stat2}</span>
-          <span className="text-slate-600 hidden sm:block">·</span>
-          <span>{t.hero_stat3}</span>
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-1.5 h-1.5 rounded-full bg-white/60"
+          />
         </motion.div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10" />
+      </motion.div>
     </section>
   );
 }
