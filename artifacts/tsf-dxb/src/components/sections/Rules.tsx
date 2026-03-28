@@ -17,7 +17,7 @@ export const Rules = memo(function Rules() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Community rules section">
+    <section ref={ref} id="safety" className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Community rules section">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_end,_var(--tw-gradient-stops))] from-primary/4 via-transparent to-transparent" aria-hidden="true" />
 
