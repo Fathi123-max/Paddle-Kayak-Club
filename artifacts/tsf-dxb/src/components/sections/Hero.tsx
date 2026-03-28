@@ -10,6 +10,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { HeroParticles } from "@/components/effects/HeroParticles";
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
@@ -126,6 +127,10 @@ export const Hero = memo(function Hero() {
               "linear-gradient(135deg, hsl(217 91% 18% / 0.6) 0%, hsl(35 80% 30% / 0.4) 50%, hsl(35 100% 96% / 0.05) 100%)",
           }}
         />
+        {/* Particle Wave Background */}
+        <div className="absolute inset-0 z-0">
+          <HeroParticles width={1200} height={800} />
+        </div>
       </motion.div>
 
       {/* Content */}
