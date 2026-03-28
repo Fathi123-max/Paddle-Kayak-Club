@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { useScrollProgress } from '@/hooks/useScrollAnimations';
+import { MagneticButton } from '@/components/effects/MagneticButton';
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
@@ -144,7 +145,8 @@ export function Navbar() {
                 {t.lang_switch}
               </button>
 
-              <Button
+              <MagneticButton
+                strength={0.4}
                 asChild
                 className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
               >
@@ -157,7 +159,7 @@ export function Navbar() {
                   <MessageCircle className="w-4 h-4 me-2" />
                   {t.nav_joinFree}
                 </a>
-              </Button>
+              </MagneticButton>
             </div>
 
             <div className="flex items-center gap-3 md:hidden">
