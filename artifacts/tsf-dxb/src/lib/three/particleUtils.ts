@@ -63,11 +63,10 @@ export function createParticleWave(config: Partial<ParticleConfig> = {}): Partic
       attribute float scale;
       varying vec3 vColor;
       uniform vec3 color;
-      
+
       void main() {
         vColor = color;
-        vec3 mvPosition = position;
-        mvPosition = modelViewMatrix * vec4(mvPosition, 1.0);
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
         gl_PointSize = scale * (300.0 / -mvPosition.z);
         gl_Position = projectionMatrix * mvPosition;
       }
@@ -75,7 +74,7 @@ export function createParticleWave(config: Partial<ParticleConfig> = {}): Partic
     fragmentShader: `
       uniform vec3 color;
       varying vec3 vColor;
-      
+
       void main() {
         if (length(gl_PointCoord - vec2(0.5, 0.5)) > 0.475) discard;
         gl_FragColor = vec4(vColor, 1.0);
