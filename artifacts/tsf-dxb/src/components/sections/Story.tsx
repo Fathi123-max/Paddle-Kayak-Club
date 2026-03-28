@@ -17,7 +17,7 @@ export const Story = memo(function Story() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Our story section">
+    <section ref={ref} id="story" className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Our story section">
       {/* Background Gradients */}
       <div className="absolute top-0 start-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
       <div className="absolute bottom-0 end-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" aria-hidden="true" />
