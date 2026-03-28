@@ -308,6 +308,13 @@ video::-webkit-media-controls-enclosure {
     direction: ltr;
   }
 
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   /* RTL support for Arabic */
   html[lang="ar"] {
     direction: rtl;
