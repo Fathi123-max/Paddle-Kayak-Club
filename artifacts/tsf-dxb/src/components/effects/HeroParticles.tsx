@@ -23,13 +23,21 @@ export const HeroParticles = memo(function HeroParticles({
   const particlesRef = useRef<THREE.Points | null>(null);
   const animationIdRef = useRef<number | null>(null);
   const countRef = useRef(0);
+  const isLowPowerRef = useRef(isLowPower);
+  const pixelRatioRef = useRef(pixelRatio);
+
+  // Keep refs in sync
+  useEffect(() => {
+    isLowPowerRef.current = isLowPower;
+    pixelRatioRef.current = pixelRatio;
+  }, [isLowPower, pixelRatio]);
 
   // Determine particle count based on device
   const particleCount = isMobile ? 800 : isLowPower ? 0 : 1500;
   const particleSize = isMobile ? 10 : 15;
 
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion || isLowPower) return;
+    if (!containerRef.current || prefersReducedMotion || isLowPowerRef.current) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -51,7 +59,7 @@ export const HeroParticles = memo(function HeroParticles({
       antialias: true,
       powerPreference: 'high-performance',
     });
-    renderer.setPixelRatio(pixelRatio);
+    renderer.setPixelRatio(pixelRatioRef.current);
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0); // Transparent background
     rendererRef.current = renderer;
@@ -61,7 +69,7 @@ export const HeroParticles = memo(function HeroParticles({
       color: new THREE.Color(0xD4A574),
       count: particleCount,
       size: particleSize,
-      pixelRatio,
+      pixelRatio: pixelRatioRef.current,
     });
     particlesRef.current = points;
     scene.add(points);
@@ -143,7 +151,7 @@ export const HeroParticles = memo(function HeroParticles({
         containerRef.current.removeChild(rendererRef.current.domElement);
       }
     };
-  }, [width, height, prefersReducedMotion]);
+  }, [width, height, prefersReducedMotion, particleCount, particleSize]);
 
   return (
     <div
