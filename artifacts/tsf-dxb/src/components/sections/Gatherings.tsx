@@ -1,10 +1,17 @@
 // src/components/sections/Gatherings.tsx
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Sun, Users, Waves, Star, MessageCircle, Wind, Droplets, Thermometer, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const WHATSAPP_URL = 'https://wa.me/971569431688';
 
@@ -12,6 +19,35 @@ export const Gatherings = memo(function Gatherings() {
   const { t, isAR } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  // GSAP scroll-triggered animations for cards
+  useEffect(() => {
+    if (prefersReducedMotion || !cardsRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const cards = cardsRef.current?.querySelectorAll('[role="listitem"]');
+      if (cards) {
+        cards.forEach((card, idx) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+            opacity: 0,
+            y: 60,
+            scale: 0.95,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: idx * 0.1,
+          });
+        });
+      }
+    });
+
+    return () => ctx.revert();
+  }, [prefersReducedMotion]);
 
   const GATHERINGS = [
     { icon: Sun, iconColor: 'text-amber-500', iconBg: 'bg-amber-50 dark:bg-amber-950/40', tag: t.g1_tag, time: t.g1_time, title: t.g1_title, body: t.g1_body, vibe: t.g1_vibe, emoji: '☀️', note: t.g1_note },
@@ -99,7 +135,7 @@ export const Gatherings = memo(function Gatherings() {
         </motion.div>
 
         {/* Gathering Cards - Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" role="list" aria-label="Upcoming gatherings">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" role="list" aria-label="Upcoming gatherings">
           {GATHERINGS.map((g, idx) => {
             const Icon = g.icon;
             return (
