@@ -64,21 +64,22 @@ export function useScrollAnimation<T extends TweenVars = TweenVars>(
 
 /**
  * Creates a scroll-linked progress bar
+ * If targetRef is provided, tracks progress within that element.
+ * Otherwise, tracks overall document scroll progress.
  */
 export function useScrollProgress(
-  targetRef: React.RefObject<HTMLElement>
+  targetRef?: React.RefObject<HTMLElement>
 ): { progress: number } {
   const progressRef = useRef(0);
 
   useEffect(() => {
-    const target = targetRef.current;
-    if (!target) return;
-
+    const target = targetRef?.current;
+    
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        trigger: target,
+        trigger: target || document.body,
         start: 'top top',
-        end: 'bottom bottom',
+        end: target ? 'bottom bottom' : 'bottom bottom',
         onUpdate: (self) => {
           progressRef.current = self.progress;
         },

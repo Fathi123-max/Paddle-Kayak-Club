@@ -4,6 +4,7 @@ import { Menu, X, MessageCircle, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { useScrollProgress } from '@/hooks/useScrollAnimations';
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
@@ -14,6 +15,9 @@ export function Navbar() {
 
   const sectionIds = ['story', 'gatherings', 'safety', 'contact'];
   const activeSection = useScrollSpy(sectionIds);
+  
+  // Scroll progress for progress bar (tracks overall document scroll)
+  const { progress } = useScrollProgress();
 
   const NAV_LINKS = [
     { name: t.nav_home, href: '#', sectionId: '' },
@@ -56,6 +60,20 @@ export function Navbar() {
 
   return (
     <>
+      {/* Scroll Progress Bar */}
+      <div
+        className="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent"
+        style={{ pointerEvents: 'none' }}
+      >
+        <div
+          className="h-full bg-gradient-to-r from-[#0A2540] via-[#D4A574] to-[#0A2540]"
+          style={{
+            width: `${progress * 100}%`,
+            transition: 'width 0.1s ease-out',
+          }}
+        />
+      </div>
+
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
