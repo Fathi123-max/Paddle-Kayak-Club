@@ -104,7 +104,7 @@ export const Hero = memo(function Hero() {
           style={{
             WebkitAppearance: "none",
           }}
-          poster="https://cdn.coverr.co/videos/coverr-sailing-on-a-lake-5926/preview.jpg"
+          poster="https://images.unsplash.com/photo-1544158602-a8a6a2a9a3d7?w=1920&q=80"
         >
           <source
             src="https://cdn.coverr.co/videos/coverr-sailing-on-a-lake-5926/720p.mp4"
@@ -112,7 +112,7 @@ export const Hero = memo(function Hero() {
           />
           {/* Fallback image if video not supported or fails to load */}
           <img
-            src="https://cdn.coverr.co/videos/coverr-sailing-on-a-lake-5926/preview.jpg"
+            src="https://images.unsplash.com/photo-1544158602-a8a6a2a9a3d7?w=1920&q=80"
             alt="Luxury sailing on serene waters at sunset"
             loading="lazy"
             decoding="async"
