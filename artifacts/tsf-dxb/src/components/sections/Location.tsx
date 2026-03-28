@@ -18,7 +18,7 @@ export const Location = memo(function Location() {
   const mapY = useTransform(scrollY, [0, 500], [0, 80]);
 
   return (
-    <section ref={ref} className="py-[160px] md:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative overflow-hidden" aria-label="Location section">
+    <section ref={ref} id="contact" className="py-[160px] md:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative overflow-hidden" aria-label="Location section">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Header */}
         <motion.div
