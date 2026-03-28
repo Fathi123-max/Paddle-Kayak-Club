@@ -3,6 +3,7 @@ import { useEffect, useRef, memo } from 'react';
 import * as THREE from 'three';
 import { createParticleWave, updateParticleWave } from '@/lib/three/particleUtils';
 import { useReducedMotion } from 'framer-motion';
+import { useDeviceDetect } from '@/hooks/useDeviceDetect';
 
 export interface HeroParticlesProps {
   width?: number;
@@ -15,6 +16,7 @@ export const HeroParticles = memo(function HeroParticles({
 }: HeroParticlesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { isMobile, isLowPower, pixelRatio } = useDeviceDetect();
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -22,8 +24,12 @@ export const HeroParticles = memo(function HeroParticles({
   const animationIdRef = useRef<number | null>(null);
   const countRef = useRef(0);
 
+  // Determine particle count based on device
+  const particleCount = isMobile ? 800 : isLowPower ? 0 : 1500;
+  const particleSize = isMobile ? 10 : 15;
+
   useEffect(() => {
-    if (!containerRef.current || prefersReducedMotion) return;
+    if (!containerRef.current || prefersReducedMotion || isLowPower) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -45,16 +51,17 @@ export const HeroParticles = memo(function HeroParticles({
       antialias: true,
       powerPreference: 'high-performance',
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(pixelRatio);
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0); // Transparent background
     rendererRef.current = renderer;
 
-    // Create particles
+    // Create particles with adaptive count
     const { points, geometry } = createParticleWave({
       color: new THREE.Color(0xD4A574),
-      count: 2500,
-      size: 15,
+      count: particleCount,
+      size: particleSize,
+      pixelRatio,
     });
     particlesRef.current = points;
     scene.add(points);

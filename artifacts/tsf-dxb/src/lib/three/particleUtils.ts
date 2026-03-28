@@ -8,6 +8,7 @@ export interface ParticleConfig {
   separation: number;
   amountX: number;
   amountY: number;
+  pixelRatio?: number;
 }
 
 export interface ParticleData {
@@ -21,12 +22,13 @@ export interface ParticleData {
  */
 export function createParticleWave(config: Partial<ParticleConfig> = {}): ParticleData {
   const finalConfig: ParticleConfig = {
-    count: 2500,
+    count: 1500, // Reduced from 2500 for performance
     size: 15,
     color: new THREE.Color(0xD4A574), // Bronze/gold
     separation: 100,
     amountX: 50,
     amountY: 50,
+    pixelRatio: 1,
     ...config,
   };
 
