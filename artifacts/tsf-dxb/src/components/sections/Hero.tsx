@@ -26,7 +26,7 @@ export const Hero = memo(function Hero() {
       // Safari requires explicit muted and playsInline
       video.muted = true;
       video.playsInline = true;
-      
+
       // Attempt to play video
       const playVideo = async () => {
         try {
@@ -43,12 +43,26 @@ export const Hero = memo(function Hero() {
         video.addEventListener("loadeddata", playVideo);
         video.addEventListener("canplay", playVideo);
         video.addEventListener("loadedmetadata", playVideo);
-        return () => {
-          video.removeEventListener("loadeddata", playVideo);
-          video.removeEventListener("canplay", playVideo);
-          video.removeEventListener("loadedmetadata", playVideo);
-        };
       }
+
+      // iOS Safari workaround: Play on first user interaction
+      // This handles Low Power Mode which shows a play button overlay
+      const handleUserInteraction = () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+        }
+      };
+
+      document.addEventListener("click", handleUserInteraction, { once: true });
+      document.addEventListener("touchstart", handleUserInteraction, { once: true });
+
+      return () => {
+        video.removeEventListener("loadeddata", playVideo);
+        video.removeEventListener("canplay", playVideo);
+        video.removeEventListener("loadedmetadata", playVideo);
+        document.removeEventListener("click", handleUserInteraction);
+        document.removeEventListener("touchstart", handleUserInteraction);
+      };
     }
   }, []);
 
@@ -77,6 +91,7 @@ export const Hero = memo(function Hero() {
           playsInline
           preload="auto"
           crossOrigin="anonymous"
+          controlsList="nodownload nofullscreen noremoteplayback"
           onLoadedMetadata={(e) => {
             const video = e.currentTarget;
             video.play().catch((err) => console.log("Play failed:", err));
@@ -85,6 +100,9 @@ export const Hero = memo(function Hero() {
             console.log("Video load error:", e.currentTarget.error)
           }
           className="w-full h-full object-cover"
+          style={{
+            WebkitAppearance: "none",
+          }}
           poster="https://cdn.coverr.co/videos/coverr-sailing-on-a-lake-5926/preview.jpg"
         >
           <source
