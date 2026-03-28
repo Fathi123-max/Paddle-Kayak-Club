@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
@@ -11,12 +12,15 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const sectionIds = ['story', 'gatherings', 'safety', 'contact'];
+  const activeSection = useScrollSpy(sectionIds);
+
   const NAV_LINKS = [
-    { name: t.nav_home, href: "#" },
-    { name: t.nav_story, href: "#story" },
-    { name: t.nav_gatherings, href: "#gatherings" },
-    { name: t.nav_rules, href: "#safety" },
-    { name: t.nav_findUs, href: "#contact" },
+    { name: t.nav_home, href: '#', sectionId: '' },
+    { name: t.nav_story, href: '#story', sectionId: 'story' },
+    { name: t.nav_gatherings, href: '#gatherings', sectionId: 'gatherings' },
+    { name: t.nav_rules, href: '#safety', sectionId: 'safety' },
+    { name: t.nav_findUs, href: '#contact', sectionId: 'contact' },
   ];
 
   useEffect(() => {
@@ -26,6 +30,29 @@ export function Navbar() {
   }, []);
 
   const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    
+    if (targetId === '') {
+      // Home - scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    // Update hash without scrolling
+    window.history.pushState(null, '', href);
+    
+    // Close mobile menu if open
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -70,11 +97,14 @@ export function Navbar() {
                   <li key={link.name} role="none">
                     <a
                       href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       role="menuitem"
                       className={`text-sm font-semibold transition-all duration-300 hover:text-primary focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                        isScrolled
-                          ? "text-slate-700 dark:text-slate-200"
-                          : "text-white/90"
+                        activeSection === link.sectionId
+                          ? 'text-primary font-bold'
+                          : isScrolled
+                          ? 'text-slate-700 dark:text-slate-200'
+                          : 'text-white/90'
                       }`}
                     >
                       {link.name}
@@ -167,9 +197,15 @@ export function Navbar() {
                 >
                   <a
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleNavClick(e, link.href);
+                    }}
                     role="menuitem"
-                    className="text-2xl font-display font-bold text-slate-900 dark:text-white block w-full py-2 focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className={`text-2xl font-display font-bold block w-full py-2 focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      activeSection === link.sectionId
+                        ? 'text-primary'
+                        : 'text-slate-900 dark:text-white'
+                    }`}
                   >
                     {link.name}
                   </a>
