@@ -1,9 +1,10 @@
 // src/components/sections/Story.tsx
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Waves, Sun, Coffee } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useCounterAnimation } from '@/hooks/useScrollAnimations';
 
 export const Story = memo(function Story() {
   const { t, isAR } = useLanguage();
@@ -63,7 +64,12 @@ export const Story = memo(function Story() {
             />
             {/* Overlay Card */}
             <div className="absolute bottom-4 right-4 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl max-w-[200px] md:max-w-xs">
-              <p className="text-primary font-display font-bold text-xl md:text-2xl mb-1">500+</p>
+              <p
+                ref={useCounterAnimation(500, 2)}
+                className="text-primary font-display font-bold text-xl md:text-2xl mb-1"
+              >
+                0+
+              </p>
               <p className="text-muted-foreground text-xs md:text-sm">Active community members</p>
             </div>
           </motion.div>
