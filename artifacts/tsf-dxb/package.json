@@ -73,5 +73,10 @@
     "vite": "catalog:",
     "wouter": "^3.3.5",
     "zod": "catalog:"
+  },
+  "dependencies": {
+    "@types/three": "0.160.0",
+    "gsap": "3.13.0",
+    "three": "0.160.0"
   }
 }
