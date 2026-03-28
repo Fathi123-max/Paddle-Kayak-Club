@@ -21,7 +21,7 @@ export const Gatherings = memo(function Gatherings() {
   ];
 
   return (
-    <section ref={ref} className="py-[80px] sm:py-[120px] md:py-[160px] lg:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative" aria-label="Community gatherings section">
+    <section ref={ref} id="gatherings" className="py-[80px] sm:py-[120px] md:py-[160px] lg:py-[200px] bg-slate-50/70 dark:bg-slate-900/50 relative" aria-label="Community gatherings section">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Header */}
         <motion.div
