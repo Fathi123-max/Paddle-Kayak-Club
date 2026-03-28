@@ -17,7 +17,7 @@ export function useDeviceDetect(): DeviceInfo {
     isDesktop: true,
     isTouch: false,
     isLowPower: false,
-    pixelRatio: typeof window !== 'undefined' ? window.devicePixelRatio : 1,
+    pixelRatio: typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1,
   });
 
   useEffect(() => {
@@ -29,32 +29,39 @@ export function useDeviceDetect(): DeviceInfo {
     const isDesktop = !isMobile && !isTablet;
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // Check battery status
-    let isLowPower = false;
+    // Check battery status asynchronously
     if ('getBattery' in navigator) {
       (navigator as any).getBattery().then((battery: any) => {
         const lowPower = !battery.charging && battery.level < 0.2;
-        setDeviceInfo({
+        setDeviceInfo(prev => ({
+          ...prev,
           isMobile,
           isTablet,
           isDesktop,
           isTouch,
           isLowPower: lowPower,
-          pixelRatio: Math.min(window.devicePixelRatio, 2),
-        });
+        }));
+      }).catch(() => {
+        // Battery API failed, use defaults
+        setDeviceInfo(prev => ({
+          ...prev,
+          isMobile,
+          isTablet,
+          isDesktop,
+          isTouch,
+          isLowPower: false,
+        }));
       });
+    } else {
+      setDeviceInfo(prev => ({
+        ...prev,
+        isMobile,
+        isTablet,
+        isDesktop,
+        isTouch,
+        isLowPower: false,
+      }));
     }
-
-    setDeviceInfo({
-      isMobile,
-      isTablet,
-      isDesktop,
-      isTouch,
-      isLowPower,
-      pixelRatio: Math.min(window.devicePixelRatio, 2),
-    });
-
-    return () => {};
   }, []);
 
   return deviceInfo;
