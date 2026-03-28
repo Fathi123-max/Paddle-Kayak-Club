@@ -23,48 +23,48 @@ export const Hero = memo(function Hero() {
   // Force autoplay on mount and handle potential errors
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      // Safari requires explicit muted and playsInline
-      video.muted = true;
-      video.playsInline = true;
+    if (!video) return;
 
-      // Attempt to play video
-      const playVideo = async () => {
-        try {
-          await video.play();
-        } catch (error) {
-          console.log("Video autoplay was prevented:", error);
-        }
-      };
+    // Safari requires explicit muted and playsInline
+    video.muted = true;
+    video.playsInline = true;
 
-      // Play when loaded
-      if (video.readyState >= 3) {
-        playVideo();
-      } else {
-        video.addEventListener("loadeddata", playVideo);
-        video.addEventListener("canplay", playVideo);
-        video.addEventListener("loadedmetadata", playVideo);
+    // Attempt to play video
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        console.log("Video autoplay was prevented:", error);
       }
+    };
 
-      // iOS Safari workaround: Play on first user interaction
-      // This handles Low Power Mode which shows a play button overlay
-      const handleUserInteraction = () => {
-        if (video.paused) {
-          video.play().catch(() => {});
-        }
-      };
-
-      document.addEventListener("click", handleUserInteraction, { once: true });
-      document.addEventListener("touchstart", handleUserInteraction, { once: true });
-
-      return () => {
-        video.removeEventListener("loadeddata", playVideo);
-        video.removeEventListener("canplay", playVideo);
-        video.removeEventListener("loadedmetadata", playVideo);
-        document.removeEventListener("click", handleUserInteraction);
-        document.removeEventListener("touchstart", handleUserInteraction);
-      };
+    // Play when loaded
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener("loadeddata", playVideo);
+      video.addEventListener("canplay", playVideo);
+      video.addEventListener("loadedmetadata", playVideo);
     }
+
+    // iOS Safari workaround: Play on first user interaction
+    // This handles Low Power Mode which shows a play button overlay
+    const handleUserInteraction = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener("click", handleUserInteraction, { once: true });
+    document.addEventListener("touchstart", handleUserInteraction, { once: true });
+
+    return () => {
+      video.removeEventListener("loadeddata", playVideo);
+      video.removeEventListener("canplay", playVideo);
+      video.removeEventListener("loadedmetadata", playVideo);
+      document.removeEventListener("click", handleUserInteraction);
+      document.removeEventListener("touchstart", handleUserInteraction);
+    };
   }, []);
 
   const { scrollY } = useScroll();

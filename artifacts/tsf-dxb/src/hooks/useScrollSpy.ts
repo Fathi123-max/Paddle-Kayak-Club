@@ -7,7 +7,7 @@ interface ScrollSpyOptions {
 
 interface SectionInfo {
   id: string;
-  element: Element;
+  element: HTMLElement;
 }
 
 export function useScrollSpy(sectionIds: string[], options: ScrollSpyOptions = {}) {
@@ -16,13 +16,13 @@ export function useScrollSpy(sectionIds: string[], options: ScrollSpyOptions = {
 
   useEffect(() => {
     // Get all section elements
-    const sections: SectionInfo[] = sectionIds
+    const sections = sectionIds
       .map((id) => {
         const element = document.getElementById(id);
         if (!element) return null;
         return { id, element };
       })
-      .filter((item): item is SectionInfo => item !== null);
+      .filter((item): item is SectionInfo => item !== null && item.element !== null);
 
     if (sections.length === 0) return;
 

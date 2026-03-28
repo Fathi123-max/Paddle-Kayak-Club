@@ -31,7 +31,7 @@ export interface TweenVars {
 export function useScrollAnimation<T extends TweenVars = TweenVars>(
   options: ScrollAnimationOptions,
   vars: T
-): React.RefObject<HTMLElement> {
+): React.RefObject<HTMLElement | null> {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export function useScrollAnimation<T extends TweenVars = TweenVars>(
     return () => ctx.revert();
   }, [options.trigger, options.start, options.end, options.scrub, options.pin, options.markers, vars]);
 
-  return ref;
+  return ref as React.RefObject<HTMLElement | null>;
 }
 
 /**
@@ -68,7 +68,7 @@ export function useScrollAnimation<T extends TweenVars = TweenVars>(
  * Otherwise, tracks overall document scroll progress.
  */
 export function useScrollProgress(
-  targetRef?: React.RefObject<HTMLElement>
+  targetRef?: React.RefObject<HTMLElement | null>
 ): { progress: number } {
   const progressRef = useRef(0);
 
@@ -98,7 +98,7 @@ export function useScrollProgress(
 export function useCounterAnimation(
   targetValue: number,
   duration: number = 2
-): React.RefObject<HTMLElement> {
+): React.RefObject<HTMLElement | null> {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -121,5 +121,5 @@ export function useCounterAnimation(
     return () => ctx.revert();
   }, [targetValue, duration]);
 
-  return ref;
+  return ref as React.RefObject<HTMLElement | null>;
 }

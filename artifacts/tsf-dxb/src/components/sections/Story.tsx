@@ -65,7 +65,7 @@ export const Story = memo(function Story() {
             {/* Overlay Card */}
             <div className="absolute bottom-4 right-4 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl max-w-[200px] md:max-w-xs">
               <p
-                ref={useCounterAnimation(500, 2)}
+                ref={useCounterAnimation(500, 2) as React.RefObject<HTMLParagraphElement>}
                 className="text-primary font-display font-bold text-xl md:text-2xl mb-1"
               >
                 0+
