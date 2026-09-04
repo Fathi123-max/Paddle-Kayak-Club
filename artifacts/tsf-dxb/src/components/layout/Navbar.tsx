@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { useScrollProgress } from '@/hooks/useScrollAnimations';
-import { MagneticButton } from '@/components/effects/MagneticButton';
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
@@ -148,21 +147,31 @@ export function Navbar() {
                 {t.lang_switch}
               </button>
 
-              <MagneticButton
-                strength={0.4}
-                asChild
-                className="rounded-full font-bold px-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-[#25D366] hover:bg-[#20bd5a] text-white border-none focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join us on WhatsApp — it's free"
+                className="group relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-white font-semibold text-sm shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #25D366 0%, #20bd5a 60%, #128C7E 100%)' }}
               >
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Join us on WhatsApp"
-                >
-                  <WhatsAppIcon className="w-4 h-4 me-2" />
-                  {t.nav_joinFree}
-                </a>
-              </MagneticButton>
+                {/* Shimmer overlay on hover */}
+                <span
+                  className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%)' }}
+                  aria-hidden="true"
+                />
+                {/* Live pulse dot */}
+                <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                </span>
+                <WhatsAppIcon className="w-4 h-4 shrink-0" />
+                <span className="flex flex-col leading-none">
+                  <span className="text-[13px] font-bold tracking-tight">{t.nav_joinFree}</span>
+                  <span className="text-[9px] font-medium opacity-80 tracking-wider uppercase">WhatsApp</span>
+                </span>
+              </a>
             </div>
 
             <div className="flex items-center gap-3 md:hidden">

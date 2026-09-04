@@ -12,7 +12,7 @@ const translations = {
     nav_story: "Our Story",
     nav_rules: "The Rules",
     nav_findUs: "Find Us",
-    nav_joinFree: "Join Us — Free",
+    nav_joinFree: "Join Free",
     lang_switch: "العربية",
 
     // Hero
@@ -167,7 +167,7 @@ const translations = {
     nav_story: "قصتنا",
     nav_rules: "قواعدنا",
     nav_findUs: "موقعنا",
-    nav_joinFree: "انضم إلينا مجاناً",
+    nav_joinFree: "انضم مجاناً",
     lang_switch: "English",
 
     // Hero
