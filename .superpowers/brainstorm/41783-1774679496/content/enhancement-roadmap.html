@@ -1,0 +1,64 @@
+<h2>Performance & Enhancement Roadmap</h2>
+<p class="subtitle">Three optimization tracks to improve the creative package</p>
+
+<div class="section">
+  <h3>📊 Current State</h3>
+  <div class="mockup">
+    <div class="mockup-body" style="background: #F8FAFC; padding: 24px; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: center;">
+        <div style="background: white; padding: 16px; border-radius: 8px; border: 2px solid #E2E8F0;">
+          <div style="font-size: 32px; font-weight: 900; color: #EF4444;">1.08 MB</div>
+          <div style="font-size: 12px; color: #64748B; margin-top: 4px;">Bundle Size</div>
+        </div>
+        <div style="background: white; padding: 16px; border-radius: 8px; border: 2px solid #E2E8F0;">
+          <div style="font-size: 32px; font-weight: 900; color: #F59E0B;">~500 KB</div>
+          <div style="font-size: 12px; color: #64748B; margin-top: 4px;">Three.js Bundle</div>
+        </div>
+        <div style="background: white; padding: 16px; border-radius: 8px; border: 2px solid #22C55E;">
+          <div style="font-size: 32px; font-weight: 900; color: #22C55E;">60 FPS</div>
+          <div style="font-size: 12px; color: #64748B; margin-top: 4px;">Desktop Performance</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px; color: #64748B; font-size: 14px;">Build is successful but bundle size increased 2x due to Three.js + GSAP</p>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top: 32px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>🚀 Performance Optimization</h3>
+      <p>Code-split Three.js with lazy loading, reduce particle count, implement LOD (Level of Detail), tree-shake unused GSAP modules. Target: 40% bundle reduction.</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>✨ Additional Effects</h3>
+      <p>Horizontal scroll sections, parallax backgrounds, page transitions, magnetic buttons, cursor effects. Maximum "wow factor" enhancement.</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>📱 Mobile Polish</h3>
+      <p>Device detection, adaptive particle counts, touch-optimized interactions, battery-aware animations. Ensure 60fps on mid-range mobile devices.</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>🎯 Full Package (Recommended)</h3>
+      <p>All three tracks combined: optimize first, then add effects strategically, with mobile-first approach throughout. Best balance of performance and impact.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 48px;">
+  <p class="label">Recommendation</p>
+  <p style="margin-top: 8px;"><strong>Option D (Full Package)</strong> is recommended. We optimize the existing Three.js implementation first (lazy loading, code splitting), then add high-impact effects that don't bloat the bundle, all while ensuring mobile devices get an optimized experience. This produces the best end-user experience across all devices.</p>
+</div>

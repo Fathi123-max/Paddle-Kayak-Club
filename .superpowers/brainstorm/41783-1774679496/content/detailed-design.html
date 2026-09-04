@@ -1,0 +1,156 @@
+<h2>Full Package - Detailed Design</h2>
+<p class="subtitle">Three-phase implementation: Optimize → Enhance → Polish</p>
+
+<div class="section">
+  <h3>📦 Phase 1: Performance Optimization (Priority 1)</h3>
+  <div class="mockup">
+    <div class="mockup-header">Expected Results</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%); color: white; padding: 24px; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+        <div>
+          <div style="font-size: 14px; opacity: 0.9;">Current Bundle</div>
+          <div style="font-size: 36px; font-weight: 900;">1.08 MB</div>
+        </div>
+        <div>
+          <div style="font-size: 14px; opacity: 0.9;">Target Bundle</div>
+          <div style="font-size: 36px; font-weight: 900;">~650 KB</div>
+        </div>
+      </div>
+      <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.3);">
+        <div style="font-size: 14px; opacity: 0.9;">Savings</div>
+        <div style="font-size: 24px; font-weight: 700;">↓ 40% reduction</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="pros-cons" style="margin-top: 24px;">
+    <div class="pros">
+      <h4>Optimizations</h4>
+      <ul>
+        <li>Lazy load Three.js with React.lazy() + Suspense</li>
+        <li>Code-split via Vite manualChunks (three, gsap separate)</li>
+        <li>Reduce particle count: 2500 → 1500 (imperceptible difference)</li>
+        <li>Use GLTFLoader for compressed geometry if needed</li>
+        <li>Tree-shake GSAP (import only ScrollTrigger)</li>
+        <li>Defer non-critical animations until idle</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>✨ Phase 2: Additional Effects (Strategic Additions)</h3>
+  <div class="cards" style="margin-top: 24px;">
+    <div class="card" data-choice="effect1">
+      <div class="card-image" style="height: 120px; background: linear-gradient(135deg, #0A2540, #D4A574); display: flex; align-items: center; justify-content: center;">
+        <div style="color: white; font-size: 48px;">📜</div>
+      </div>
+      <div class="card-body" style="padding: 16px;">
+        <h3>Horizontal Scroll Section</h3>
+        <p style="font-size: 14px; color: #64748B;">Gatherings cards scroll horizontally on scroll (replaces grid temporarily)</p>
+      </div>
+    </div>
+    
+    <div class="card" data-choice="effect2">
+      <div class="card-image" style="height: 120px; background: linear-gradient(135deg, #D4A574, #0A2540); display: flex; align-items: center; justify-content: center;">
+        <div style="color: white; font-size: 48px;">🌊</div>
+      </div>
+      <div class="card-body" style="padding: 16px;">
+        <h3>Parallax Backgrounds</h3>
+        <p style="font-size: 14px; color: #64748B;">Multi-layer parallax on Story section with floating shapes</p>
+      </div>
+    </div>
+    
+    <div class="card" data-choice="effect3">
+      <div class="card-image" style="height: 120px; background: linear-gradient(135deg, #00734F, #D4A574); display: flex; align-items: center; justify-content: center;">
+        <div style="color: white; font-size: 48px;">✨</div>
+      </div>
+      <div class="card-body" style="padding: 16px;">
+        <h3>Magnetic Buttons</h3>
+        <p style="font-size: 14px; color: #64748B;">CTA buttons attract cursor with spring physics</p>
+      </div>
+    </div>
+  </div>
+  
+  <p style="margin-top: 24px; font-size: 14px; color: #64748B;">All effects use existing GSAP/Framer Motion - no new dependencies</p>
+</div>
+
+<div class="section">
+  <h3>📱 Phase 3: Mobile Polish (Device-Adaptive)</h3>
+  <div class="mockup" style="margin-top: 24px;">
+    <div class="mockup-body" style="background: #F8FAFC; padding: 24px; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 8px;">📱</div>
+          <div style="font-size: 12px; font-weight: 600; color: #0A2540;">Mobile</div>
+          <div style="font-size: 18px; font-weight: 700; color: #22C55E; margin-top: 4px;">800 particles</div>
+          <div style="font-size: 11px; color: #64748B;">Touch interactions</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 8px;">💻</div>
+          <div style="font-size: 12px; font-weight: 600; color: #0A2540;">Desktop</div>
+          <div style="font-size: 18px; font-weight: 700; color: #22C55E; margin-top: 4px;">1500 particles</div>
+          <div style="font-size: 11px; color: #64748B;">Mouse interactions</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔋</div>
+          <div style="font-size: 12px; font-weight: 600; color: #0A2540;">Low Power</div>
+          <div style="font-size: 18px; font-weight: 700; color: #F59E0B; margin-top: 4px;">Static fallback</div>
+          <div style="font-size: 11px; color: #64748B;">Battery saver</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="pros-cons" style="margin-top: 24px;">
+    <div class="pros">
+      <h4>Mobile Optimizations</h4>
+      <ul>
+        <li>Device detection via navigator.userAgent + screen.width</li>
+        <li>Adaptive particle counts (800 mobile / 1500 desktop)</li>
+        <li>Touch-based interaction (no hover states)</li>
+        <li>Reduced motion for battery-saver mode detection</li>
+        <li>GPU acceleration hints (will-change, transform: translateZ)</li>
+        <li>Image optimization with next-gen formats (WebP)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <h3>📁 Files to Create/Modify</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>Create</h4>
+      <ul>
+        <li><code>src/hooks/useDeviceDetect.ts</code> - Device/battery detection</li>
+        <li><code>src/components/effects/MagneticButton.tsx</code> - Magnetic CTA</li>
+        <li><code>src/components/sections/HorizontalGatherings.tsx</code> - Horizontal scroll</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>Modify</h4>
+      <ul>
+        <li><code>vite.config.ts</code> - manualChunks configuration</li>
+        <li><code>HeroParticles.tsx</code> - Adaptive particle counts</li>
+        <li><code>Story.tsx</code> - Parallax backgrounds</li>
+        <li><code>Navbar.tsx</code> - Magnetic button integration</li>
+        <li><code>package.json</code> - No new dependencies needed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <h3>✅ Success Criteria</h3>
+  <ul style="margin-top: 16px; line-height: 2;">
+    <li>✅ Bundle size reduced from 1.08MB to < 700KB (gzipped < 350KB)</li>
+    <li>✅ First Contentful Paint < 2.0s on 4G networks</li>
+    <li>✅ 60fps on iPhone 12+ and equivalent Android devices</li>
+    <li>✅ Horizontal scroll section works smoothly</li>
+    <li>✅ Magnetic buttons provide satisfying haptic feel</li>
+    <li>✅ Parallax backgrounds add depth without jank</li>
+    <li>✅ Battery-saver mode detected and respected</li>
+    <li>✅ Lighthouse Performance score > 90</li>
+  </ul>
+</div>

@@ -1,0 +1,50 @@
+<h2>Implementation Approach - Which build order works best?</h2>
+<p class="subtitle">Three ways to build the full creative package</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Sequential Build (Recommended)</h3>
+      <p>Build each phase completely before moving to the next. Test in browser after each phase. Safer, easier to debug, you see progress incrementally.</p>
+      <p style="margin-top: 12px; font-size: 14px; color: #64748B;"><strong>Order:</strong> Three.js Hero → GSAP Scroll → Framer Polish → Final Testing</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Parallel Build</h3>
+      <p>Build all phases simultaneously in feature branches, merge at the end. Faster if everything goes smoothly, riskier if conflicts arise.</p>
+      <p style="margin-top: 12px; font-size: 14px; color: #64748B;"><strong>Order:</strong> All phases in parallel → Integration → Testing</p>
+    </div>
+  </div>
+  
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Quick Wins First</h3>
+      <p>Start with Framer Motion polish (already installed), then add GSAP, finish with Three.js. See improvements immediately, can stop at any point.</p>
+      <p style="margin-top: 12px; font-size: 14px; color: #64748B;"><strong>Order:</strong> Framer Polish → GSAP Scroll → Three.js Hero</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 48px;">
+  <p class="label">Recommendation</p>
+  <p style="margin-top: 8px;"><strong>Option A (Sequential)</strong> is recommended for this project. You'll see the dramatic Three.js water hero first (maximum wow factor), then we layer on scroll animations, then polish. Each phase is tested before the next begins. If we need to stop early for any reason, you still have a complete, working enhancement.</p>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <p class="label">Dependencies to Install</p>
+  <div class="mockup" style="margin-top: 16px;">
+    <div class="mockup-body" style="background: #1E293B; color: #E2E8F0; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 13px;">
+      <div style="color: #94A3B8; margin-bottom: 8px;"># GSAP with ScrollTrigger</div>
+      <div style="color: #4ADE80;">pnpm add gsap</div>
+      <div style="color: #94A3B8; margin-top: 16px; margin-bottom: 8px;"># Three.js (if not already installed)</div>
+      <div style="color: #4ADE80;">pnpm add three</div>
+      <div style="color: #94A3B8; margin-top: 16px; margin-bottom: 8px;"># @types/three for TypeScript</div>
+      <div style="color: #4ADE80;">pnpm add -D @types/three</div>
+    </div>
+  </div>
+</div>

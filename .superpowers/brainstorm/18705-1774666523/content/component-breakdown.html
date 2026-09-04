@@ -1,0 +1,130 @@
+<h2>Full Creative Package - Component Breakdown</h2>
+<p class="subtitle">Here's what we'll build for TSF DXB</p>
+
+<div class="section">
+  <h3>🎨 Phase 1: Three.js Water Hero Background</h3>
+  <div class="mockup">
+    <div class="mockup-header">Hero Section Preview</div>
+    <div class="mockup-body" style="background: linear-gradient(135deg, #0A2540 0%, #16406B 100%); min-height: 400px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+      <div style="position: absolute; inset: 0; opacity: 0.6;">
+        <!-- Simulated particle waves -->
+        <div style="position: absolute; top: 20%; left: 10%; width: 8px; height: 8px; background: rgba(212, 165, 116, 0.8); border-radius: 50%; animation: float 3s ease-in-out infinite;"></div>
+        <div style="position: absolute; top: 30%; left: 20%; width: 6px; height: 6px; background: rgba(212, 165, 116, 0.6); border-radius: 50%; animation: float 4s ease-in-out infinite 0.5s;"></div>
+        <div style="position: absolute; top: 25%; left: 35%; width: 10px; height: 10px; background: rgba(212, 165, 116, 0.7); border-radius: 50%; animation: float 3.5s ease-in-out infinite 1s;"></div>
+        <div style="position: absolute; top: 35%; left: 50%; width: 7px; height: 7px; background: rgba(212, 165, 116, 0.5); border-radius: 50%; animation: float 4.5s ease-in-out infinite 0.3s;"></div>
+        <div style="position: absolute; top: 28%; left: 65%; width: 9px; height: 9px; background: rgba(212, 165, 116, 0.8); border-radius: 50%; animation: float 3.2s ease-in-out infinite 0.7s;"></div>
+        <div style="position: absolute; top: 32%; left: 80%; width: 6px; height: 6px; background: rgba(212, 165, 116, 0.6); border-radius: 50%; animation: float 4.2s ease-in-out infinite 1.2s;"></div>
+        <div style="position: absolute; top: 40%; left: 15%; width: 8px; height: 8px; background: rgba(212, 165, 116, 0.7); border-radius: 50%; animation: float 3.8s ease-in-out infinite 0.4s;"></div>
+        <div style="position: absolute; top: 45%; left: 40%; width: 7px; height: 7px; background: rgba(212, 165, 116, 0.5); border-radius: 50%; animation: float 4.3s ease-in-out infinite 0.9s;"></div>
+        <div style="position: absolute; top: 38%; left: 70%; width: 9px; height: 9px; background: rgba(212, 165, 116, 0.8); border-radius: 50%; animation: float 3.3s ease-in-out infinite 0.2s;"></div>
+      </div>
+      <div style="position: relative; z-index: 10; text-align: center; color: white;">
+        <h1 style="font-size: 48px; font-weight: 900; margin-bottom: 16px; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">TSF DXB</h1>
+        <p style="font-size: 20px; opacity: 0.9;">Dubai's Paddle & Kayak Community</p>
+      </div>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top: 24px;">
+    <div class="pros">
+      <h4>What It Does</h4>
+      <ul>
+        <li>Animated particle waves that flow like water</li>
+        <li>Mouse-interactive ripples following cursor</li>
+        <li>Bronze/gold particles matching brand colors</li>
+        <li>GPU-accelerated for smooth 60fps</li>
+        <li>Respects reduced-motion preferences</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>📜 Phase 2: GSAP Scroll Animations</h3>
+  <div class="mockup">
+    <div class="mockup-header">Scroll-Triggered Effects</div>
+    <div class="mockup-body" style="background: #F8FAFC; min-height: 300px; padding: 24px;">
+      <!-- Progress bar -->
+      <div style="position: sticky; top: 0; height: 4px; background: #E2E8F0; border-radius: 2px; margin-bottom: 24px;">
+        <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0A2540, #D4A574); border-radius: 2px;"></div>
+      </div>
+      <!-- Cards animating in -->
+      <div style="display: grid; gap: 16px;">
+        <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateX(0); opacity: 1; transition: all 0.6s ease;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; background: rgba(212, 165, 116, 0.1); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="height: 12px; background: #E2E8F0; border-radius: 4px; width: 60%;"></div>
+              <div style="height: 8px; background: #F1F5F9; border-radius: 4px; width: 80%; margin-top: 8px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateX(50px); opacity: 0.5; transition: all 0.6s ease;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; background: rgba(212, 165, 116, 0.1); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="height: 12px; background: #E2E8F0; border-radius: 4px; width: 60%;"></div>
+              <div style="height: 8px; background: #F1F5F9; border-radius: 4px; width: 80%; margin-top: 8px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 16px; color: #64748B; font-size: 14px;">Cards reveal with stagger as you scroll</p>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top: 24px;">
+    <div class="pros">
+      <h4>What It Does</h4>
+      <ul>
+        <li>Scroll progress bar at top (primary → bronze gradient)</li>
+        <li>Horizontal scroll for gathering cards</li>
+        <li>Counter animations (500+ members counts up)</li>
+        <li>Parallax background layers</li>
+        <li>Batch reveal animations for rules cards</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>✨ Phase 3: Framer Motion Polish</h3>
+  <div class="mockup">
+    <div class="mockup-header">Micro-Interactions Preview</div>
+    <div class="mockup-body" style="background: white; min-height: 300px; padding: 24px; border: 1px solid #E2E8F0; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+        <!-- Hover glow card -->
+        <div style="background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(0, 115, 79, 0.05)); padding: 20px; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.2); box-shadow: 0 0 0 rgba(212, 165, 116, 0); transition: all 0.3s ease; position: relative; overflow: hidden;">
+          <div style="position: absolute; inset: -2px; background: radial-gradient(circle at 50% 0%, rgba(212, 165, 116, 0.3), transparent 70%); opacity: 0; transition: opacity 0.3s ease;"></div>
+          <div style="height: 32px; width: 32px; background: linear-gradient(135deg, #D4A574, #E5C5A3); border-radius: 10px; margin-bottom: 12px;"></div>
+          <div style="height: 12px; background: #0A2540; border-radius: 4px; width: 70%; margin-bottom: 8px;"></div>
+          <div style="height: 8px; background: #94A3B8; border-radius: 4px; width: 90%;"></div>
+        </div>
+        <!-- Scale on hover -->
+        <div style="background: white; padding: 20px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: scale(1.05); transition: transform 0.3s ease;">
+          <div style="height: 32px; width: 32px; background: #0A2540; border-radius: 10px; margin-bottom: 12px;"></div>
+          <div style="height: 12px; background: #0A2540; border-radius: 4px; width: 70%; margin-bottom: 8px;"></div>
+          <div style="height: 8px; background: #94A3B8; border-radius: 4px; width: 90%;"></div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 16px; color: #64748B; font-size: 14px;">Hover effects with bronze glow & smooth scale</p>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top: 24px;">
+    <div class="pros">
+      <h4>What It Does</h4>
+      <ul>
+        <li>Bronze glow on card hover (gradient spotlight)</li>
+        <li>Smooth scale & lift on interactive elements</li>
+        <li>Staggered fade-in for lists/grids</li>
+        <li>Page transition animations</li>
+        <li>Button press feedback with spring physics</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+</style>
