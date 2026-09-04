@@ -58,8 +58,10 @@ export const Story = memo(function Story() {
             className="relative"
           >
             <img
-              src="https://pixabay.com/get/g89e648228e80f06d19ae07f7e02a3163c339dd46fe6130d8eddf99ef2044196bf4bb6c0fd9c1057fb85d48b6ec41ea3762b6d42ffc9cdb396c2d0c93077d2b06_1280.jpg"
+              src={`${import.meta.env.BASE_URL}story-community.jpg`}
               alt="Paddle community at sunrise"
+              width={1400}
+              height={900}
               loading="lazy"
               decoding="async"
               className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-2xl shadow-2xl"
