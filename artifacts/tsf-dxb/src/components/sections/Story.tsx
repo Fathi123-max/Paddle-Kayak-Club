@@ -34,6 +34,8 @@ export const Story = memo(function Story() {
           <img
             src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`}
             alt="TSF DXB"
+            width={512}
+            height={515}
             loading="lazy"
             decoding="async"
             className="h-20 w-auto mx-auto mb-10 drop-shadow-sm"

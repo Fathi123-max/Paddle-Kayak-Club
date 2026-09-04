@@ -1,5 +1,5 @@
 // src/components/sections/Hero.tsx
-import { memo, useEffect, useRef, Suspense } from "react";
+import { memo, useEffect, useRef } from "react";
 import {
   motion,
   useScroll,
@@ -14,13 +14,16 @@ import { HeroParticles } from "@/components/effects/HeroParticles";
 
 const WHATSAPP_URL = "https://wa.me/971569431688";
 
+const HERO_VIDEO = `${import.meta.env.BASE_URL}hero-film.mp4`;
+const HERO_POSTER = `${import.meta.env.BASE_URL}hero-poster.jpg`;
+
 export const Hero = memo(function Hero() {
   const { t, isAR } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Force autoplay on mount and handle potential errors
+  // Force autoplay on mount, handle errors, and respect reduced motion
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -28,6 +31,12 @@ export const Hero = memo(function Hero() {
     // Safari requires explicit muted and playsInline
     video.muted = true;
     video.playsInline = true;
+
+    // Decorative background loop: freeze on the poster for reduced motion
+    if (prefersReducedMotion) {
+      video.pause();
+      return;
+    }
 
     // Attempt to play video
     const playVideo = async () => {
@@ -65,7 +74,7 @@ export const Hero = memo(function Hero() {
       document.removeEventListener("click", handleUserInteraction);
       document.removeEventListener("touchstart", handleUserInteraction);
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
@@ -83,7 +92,7 @@ export const Hero = memo(function Hero() {
         className="absolute inset-0 z-0"
         aria-hidden="true"
       >
-        {/* Luxury Sailing Video Background - Premium Ocean Experience */}
+        {/* Paddling at Dawn Video Background - Club's own film */}
         <video
           ref={videoRef}
           autoPlay
@@ -91,7 +100,6 @@ export const Hero = memo(function Hero() {
           muted
           playsInline
           preload="auto"
-          crossOrigin="anonymous"
           controlsList="nodownload nofullscreen noremoteplayback"
           onLoadedMetadata={(e) => {
             const video = e.currentTarget;
@@ -104,27 +112,24 @@ export const Hero = memo(function Hero() {
           style={{
             WebkitAppearance: "none",
           }}
-          poster="https://images.unsplash.com/photo-1544158602-a8a6a2a9a3d7?w=1920&q=80"
+          poster={HERO_POSTER}
         >
-          <source
-            src="https://cdn.coverr.co/videos/coverr-sailing-on-a-lake-5926/720p.mp4"
-            type="video/mp4"
-          />
+          <source src={HERO_VIDEO} type="video/mp4" />
           {/* Fallback image if video not supported or fails to load */}
           <img
-            src="https://images.unsplash.com/photo-1544158602-a8a6a2a9a3d7?w=1920&q=80"
-            alt="Luxury sailing on serene waters at sunset"
-            loading="lazy"
+            src={HERO_POSTER}
+            alt=""
+            loading="eager"
             decoding="async"
             className="w-full h-full object-cover"
           />
         </video>
-        {/* Gradient Overlay - Warm Sunset Tones */}
+        {/* Gradient Overlay - keeps copy legible over the film */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, hsl(217 91% 18% / 0.6) 0%, hsl(35 80% 30% / 0.4) 50%, hsl(35 100% 96% / 0.05) 100%)",
+              "linear-gradient(160deg, hsl(222 45% 7% / 0.62) 0%, hsl(222 45% 9% / 0.28) 45%, hsl(35 55% 28% / 0.24) 78%, hsl(222 45% 6% / 0.62) 100%), linear-gradient(180deg, transparent 58%, hsl(222 45% 5% / 0.5) 100%)",
           }}
         />
         {/* Particle Wave Background */}
@@ -165,7 +170,8 @@ export const Hero = memo(function Hero() {
               ease: [0.19, 1, 0.22, 1],
               delay: 0.2,
             }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
+            className="text-balance text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-black text-white leading-[1.05] tracking-tight mt-8 mb-8"
+            style={{ textShadow: "0 2px 32px hsl(222 45% 4% / 0.55)" }}
           >
             {t.hero_headline1}
             <span className="block">
@@ -214,6 +220,7 @@ export const Hero = memo(function Hero() {
               >
                 <MessageCircle
                   className={`me-3 w-6 h-6 ${isAR ? "rtl-mirror" : ""}`}
+                  aria-hidden="true"
                 />
                 {t.hero_cta}
               </a>

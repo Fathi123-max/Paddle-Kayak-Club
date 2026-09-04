@@ -51,7 +51,7 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <div className="bg-white/10 p-3 rounded-2xl">
-                <img src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`} alt="TSF DXB Logo" className="h-16 w-auto object-contain" />
+                <img src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`} alt="TSF DXB Logo" width={512} height={515} className="h-16 w-auto object-contain" />
               </div>
               <div>
                 <h3 className="text-2xl font-display font-bold text-white">TSF DXB</h3>

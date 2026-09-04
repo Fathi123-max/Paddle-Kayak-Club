@@ -97,6 +97,8 @@ export function Navbar() {
               <img
                 src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`}
                 alt="TSF DXB Logo"
+                width={512}
+                height={515}
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               <span
@@ -141,7 +143,7 @@ export function Navbar() {
                 }`}
                 aria-label="Switch language"
               >
-                <Globe className="w-3.5 h-3.5" />
+                <Globe className="w-3.5 h-3.5" aria-hidden="true" />
                 {t.lang_switch}
               </button>
 
@@ -172,7 +174,7 @@ export function Navbar() {
                 }`}
                 aria-label="Switch language"
               >
-                <Globe className="w-3 h-3" />
+                <Globe className="w-3 h-3" aria-hidden="true" />
                 {t.lang_switch}
               </button>
               <button
