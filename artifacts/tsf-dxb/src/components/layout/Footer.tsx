@@ -1,5 +1,6 @@
 // src/components/layout/Footer.tsx
-import { MapPin, Instagram, Heart, MessageCircle, Waves } from 'lucide-react';
+import { MapPin, Heart, Waves } from 'lucide-react';
+import { WhatsAppIcon, InstagramIcon } from '@/components/ui/brand-icons';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -40,7 +41,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Join community on WhatsApp"
               >
-                <MessageCircle className="w-6 h-6 me-2" aria-hidden="true" />
+                <WhatsAppIcon className="w-6 h-6 me-2" />
                 {t.footer_cta_btn}
               </a>
             </Button>
@@ -102,7 +103,7 @@ export function Footer() {
                   aria-label="Contact us on WhatsApp"
                 >
                   <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-bronze/20 transition-colors">
-                    <MessageCircle className="w-5 h-5 text-[#25D366] group-hover:text-white" aria-hidden="true" />
+                    <WhatsAppIcon className="w-5 h-5 text-[#25D366] group-hover:text-white" />
                   </div>
                   <span>{t.footer_whatsapp}</span>
                 </a>
@@ -122,7 +123,7 @@ export function Footer() {
                   aria-label="Follow us on Instagram"
                 >
                   <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-bronze/20 transition-colors">
-                    <Instagram className="w-5 h-5 text-bronze group-hover:text-bronze-light" aria-hidden="true" />
+                    <InstagramIcon className="w-5 h-5 text-bronze group-hover:text-bronze-light" />
                   </div>
                   <span>{t.footer_instagram}</span>
                 </a>

@@ -6,7 +6,8 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { MessageCircle, Sun, Users, Heart } from "lucide-react";
+import { Sun, Users, Heart } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -218,10 +219,7 @@ export const Hero = memo(function Hero() {
                 rel="noopener noreferrer"
                 aria-label="Join us on WhatsApp"
               >
-                <MessageCircle
-                  className={`me-3 w-6 h-6 ${isAR ? "rtl-mirror" : ""}`}
-                  aria-hidden="true"
-                />
+                <WhatsAppIcon className={`me-3 w-6 h-6 ${isAR ? "rtl-mirror" : ""}`} />
                 {t.hero_cta}
               </a>
             </Button>

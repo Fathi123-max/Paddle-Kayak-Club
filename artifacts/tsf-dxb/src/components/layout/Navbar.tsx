@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
@@ -158,7 +159,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   aria-label="Join us on WhatsApp"
                 >
-                  <MessageCircle className="w-4 h-4 me-2" />
+                  <WhatsAppIcon className="w-4 h-4 me-2" />
                   {t.nav_joinFree}
                 </a>
               </MagneticButton>
@@ -246,7 +247,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   aria-label="Join us on WhatsApp"
                 >
-                  <MessageCircle className="w-5 h-5 me-2" />
+                  <WhatsAppIcon className="w-5 h-5 me-2" />
                   {t.hero_cta}
                 </a>
               </Button>

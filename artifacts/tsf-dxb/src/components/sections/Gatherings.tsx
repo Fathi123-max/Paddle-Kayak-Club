@@ -1,7 +1,8 @@
 // src/components/sections/Gatherings.tsx
 import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Sun, Users, Waves, Star, MessageCircle, Wind, Droplets, Thermometer, Flame, Calendar, Lightbulb } from 'lucide-react';
+import { Sun, Users, Waves, Star, Wind, Droplets, Thermometer, Flame, Calendar, Lightbulb } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/brand-icons';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -62,7 +63,7 @@ export const Gatherings = memo(function Gatherings() {
               rel="noopener noreferrer"
               aria-label="RSVP via WhatsApp"
             >
-              <MessageCircle className={`w-5 h-5 me-2 ${isAR ? 'rtl-mirror' : ''}`} aria-hidden="true" />
+              <WhatsAppIcon className={`w-5 h-5 me-2 ${isAR ? 'rtl-mirror' : ''}`} />
               {t.schedule_rsvp}
             </a>
           </Button>
@@ -202,7 +203,7 @@ export const Gatherings = memo(function Gatherings() {
               rel="noopener noreferrer"
               aria-label="Join community on WhatsApp"
             >
-              <MessageCircle className={`w-6 h-6 me-2 ${isAR ? 'rtl-mirror' : ''}`} aria-hidden="true" />
+              <WhatsAppIcon className={`w-6 h-6 me-2 ${isAR ? 'rtl-mirror' : ''}`} />
               {t.gatherings_cta}
             </a>
           </Button>
