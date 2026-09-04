@@ -1,7 +1,7 @@
 // src/components/sections/Rules.tsx
 import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Waves, Users, Leaf } from 'lucide-react';
+import { Sparkles, Users, Leaf } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -13,7 +13,7 @@ export const Rules = memo(function Rules() {
   const RULES = [
     { icon: Leaf, iconColor: 'text-secondary', iconBg: 'bg-secondary/10', number: t.r1_num, title: t.r1_title, body: t.r1_body },
     { icon: Users, iconColor: 'text-primary', iconBg: 'bg-primary/10', number: t.r2_num, title: t.r2_title, body: t.r2_body },
-    { icon: Waves, iconColor: 'text-amber-500', iconBg: 'bg-amber-50 dark:bg-amber-950/30', number: t.r3_num, title: t.r3_title, body: t.r3_body },
+    { icon: Sparkles, iconColor: 'text-bronze-dark', iconBg: 'bg-bronze/10 dark:bg-bronze/20', number: t.r3_num, title: t.r3_title, body: t.r3_body },
   ];
 
   return (

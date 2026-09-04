@@ -6,12 +6,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const WHATSAPP_URL = 'https://wa.me/971569431688';
 
 export function Footer() {
-  const { t, isAR } = useLanguage();
+  const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="bg-slate-950 text-slate-300 pt-24 pb-12 relative overflow-hidden" role="contentinfo">
+    <footer className="bg-slate-950 text-slate-300 pt-24 pb-12 relative overflow-hidden" role="contentinfo">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-bronze/15 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* CTA Section */}
@@ -28,7 +28,7 @@ export function Footer() {
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-snug max-w-4xl mx-auto">{t.footer_cta_title}</h2>
             <p className="text-slate-300 text-xl max-w-2xl mx-auto mb-4 leading-relaxed">{t.footer_cta_sub}</p>
-            <p className="text-slate-400 text-base mb-10">{t.footer_cta_schedule}</p>
+            <p className="text-slate-300 text-base mb-10">{t.footer_cta_schedule}</p>
             <Button
               asChild
               size="lg"
@@ -48,16 +48,16 @@ export function Footer() {
         </div>
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
           {/* Brand Column */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-4">
               <div className="bg-white/10 p-3 rounded-2xl">
                 <img src={`${import.meta.env.BASE_URL}tsf-dxb-logo.png`} alt="TSF DXB Logo" width={512} height={515} className="h-16 w-auto object-contain" />
               </div>
               <div>
                 <h3 className="text-2xl font-display font-bold text-white">TSF DXB</h3>
-                <p className="text-primary font-medium text-xs tracking-widest uppercase">Team Supboard Forever</p>
+                <p className="text-bronze font-medium text-xs tracking-widest uppercase">{t.footer_tagline}</p>
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed">{t.footer_brand_desc}</p>
@@ -70,44 +70,18 @@ export function Footer() {
               {[
                 { href: '#story', label: t.footer_link_story },
                 { href: '#gatherings', label: t.footer_link_gatherings },
-                { href: '#location', label: t.footer_link_location },
+                { href: '#contact', label: t.footer_link_location },
                 { href: '#safety', label: t.footer_link_rules },
               ].map(({ href, label }) => (
                 <li key={href} role="listitem">
                   <a
                     href={href}
-                    className="group flex items-center gap-3 text-slate-400 hover:text-primary transition-colors duration-300 focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-950"
+                    className="group flex items-center gap-3 text-slate-400 hover:text-bronze-light transition-colors duration-300 focus:outline-none focus:underline focus:ring-2 focus:ring-bronze-light focus:ring-offset-2 focus:ring-offset-slate-950"
                   >
-                    <span className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors shrink-0" aria-hidden="true" />
+                    <span className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-bronze transition-colors shrink-0" aria-hidden="true" />
                     <span className="relative">
                       {label}
-                      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300 ease-out" aria-hidden="true" />
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-display font-bold text-xl mb-6">Quick Links</h4>
-            <ul className="flex flex-col gap-4" role="list">
-              {[
-                { href: '#', label: 'Home' },
-                { href: '#story', label: 'About Us' },
-                { href: '#gatherings', label: 'Events' },
-                { href: '#safety', label: 'Community Guidelines' },
-              ].map(({ href, label }) => (
-                <li key={href} role="listitem">
-                  <a
-                    href={href}
-                    className="group flex items-center gap-3 text-slate-400 hover:text-primary transition-colors duration-300 focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-950"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors shrink-0" aria-hidden="true" />
-                    <span className="relative">
-                      {label}
-                      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300 ease-out" aria-hidden="true" />
+                      <span className="absolute bottom-0 left-0 w-0 h-px bg-bronze group-hover:w-full transition-all duration-300 ease-out" aria-hidden="true" />
                     </span>
                   </a>
                 </li>
@@ -124,18 +98,18 @@ export function Footer() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 text-slate-400 hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="group flex items-center gap-4 text-slate-400 hover:text-bronze-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-bronze-light focus:ring-offset-2 focus:ring-offset-slate-950"
                   aria-label="Contact us on WhatsApp"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <MessageCircle className="w-5 h-5 text-[#25D366] group-hover:text-primary" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-bronze/20 transition-colors">
+                    <MessageCircle className="w-5 h-5 text-[#25D366] group-hover:text-white" aria-hidden="true" />
                   </div>
                   <span>{t.footer_whatsapp}</span>
                 </a>
               </li>
               <li className="flex items-center gap-4 text-slate-400" role="listitem">
                 <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" aria-hidden="true" />
+                  <MapPin className="w-5 h-5 text-bronze" aria-hidden="true" />
                 </div>
                 <span>{t.footer_location}</span>
               </li>
@@ -144,11 +118,11 @@ export function Footer() {
                   href="https://instagram.com/tsf_dxb"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 text-slate-400 hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="group flex items-center gap-4 text-slate-400 hover:text-bronze-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-bronze-light focus:ring-offset-2 focus:ring-offset-slate-950"
                   aria-label="Follow us on Instagram"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <Instagram className="w-5 h-5 text-primary group-hover:text-primary" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center shrink-0 group-hover:bg-bronze/20 transition-colors">
+                    <Instagram className="w-5 h-5 text-bronze group-hover:text-bronze-light" aria-hidden="true" />
                   </div>
                   <span>{t.footer_instagram}</span>
                 </a>
@@ -159,9 +133,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 text-center">
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-2 flex-wrap">
+          <p className="text-slate-400 text-sm flex items-center justify-center gap-2 flex-wrap">
             {t.footer_built} <Heart className="w-4 h-4 fill-red-500 text-red-500 mx-1" aria-hidden="true" /> {t.footer_in}
-            <span className="text-slate-600 mx-2" aria-hidden="true">·</span>
+            <span className="text-slate-500 mx-2" aria-hidden="true">·</span>
             © {new Date().getFullYear()} {t.footer_copy}
           </p>
         </div>

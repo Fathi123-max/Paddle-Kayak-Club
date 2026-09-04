@@ -12,16 +12,16 @@ export const Story = memo(function Story() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const cards = [
-    { icon: Sun, color: 'text-amber-500', bg: 'bg-amber-50 dark:bg-amber-950/30', title: t.story_c1_title, body: t.story_c1_body },
+    { icon: Sun, color: 'text-bronze-dark', bg: 'bg-bronze/10 dark:bg-bronze/20', title: t.story_c1_title, body: t.story_c1_body },
     { icon: Waves, color: 'text-primary', bg: 'bg-primary/5 dark:bg-primary/10', title: t.story_c2_title, body: t.story_c2_body },
-    { icon: Coffee, color: 'text-orange-500', bg: 'bg-orange-50 dark:bg-orange-950/30', title: t.story_c3_title, body: t.story_c3_body },
+    { icon: Coffee, color: 'text-bronze-deep', bg: 'bg-bronze-deep/10 dark:bg-bronze-deep/20', title: t.story_c3_title, body: t.story_c3_body },
   ];
 
   return (
     <section ref={ref} id="story" className="py-[160px] md:py-[200px] bg-white dark:bg-background relative overflow-hidden" aria-label="Our story section">
       {/* Background Gradients */}
       <div className="absolute top-0 start-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
-      <div className="absolute bottom-0 end-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" aria-hidden="true" />
+      <div className="absolute bottom-0 end-0 w-96 h-96 bg-bronze/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Header - Editorial Scale */}
@@ -117,7 +117,7 @@ export const Story = memo(function Story() {
           initial={{ opacity: 0, scale: 0.97 }}
           animate={isVisible ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 1.2 }}
-          className="bg-gradient-to-br from-primary/8 to-teal-500/5 rounded-3xl p-12 md:p-20 text-center border border-primary/10 relative"
+          className="bg-gradient-to-br from-primary/8 to-bronze/10 rounded-3xl p-12 md:p-20 text-center border border-primary/10 relative"
           role="blockquote"
         >
           <div className="absolute top-0 left-8 md:left-12 text-8xl text-primary/20 font-serif leading-none" aria-hidden="true">“</div>

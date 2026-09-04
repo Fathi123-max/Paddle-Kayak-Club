@@ -120,12 +120,12 @@ export function Navbar() {
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
                       role="menuitem"
-                      className={`text-sm font-semibold transition-all duration-300 hover:text-primary focus:outline-none focus:underline focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      className={`text-sm font-semibold transition-all duration-300 focus:outline-none focus:underline focus:ring-2 focus:ring-offset-2 ${
                         activeSection === link.sectionId
                           ? 'text-primary font-bold'
                           : isScrolled
-                          ? 'text-slate-700 dark:text-slate-200'
-                          : 'text-white/90'
+                          ? 'text-slate-700 dark:text-slate-200 hover:text-primary focus:ring-primary'
+                          : 'text-white/90 hover:text-white focus:ring-white'
                       }`}
                     >
                       {link.name}

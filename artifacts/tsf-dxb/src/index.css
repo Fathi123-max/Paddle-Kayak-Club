@@ -69,6 +69,7 @@ video::-webkit-media-controls-enclosure {
   --color-bronze: hsl(38 92% 58%);
   --color-bronze-light: hsl(38 92% 68%);
   --color-bronze-dark: hsl(38 92% 48%);
+  --color-bronze-deep: hsl(36 90% 33%); /* readable gold-ink for small text on light */
 
   --font-sans: 'Satoshi', 'IBM Plex Sans Arabic', sans-serif;
   --font-display: 'Playfair Display', 'Noto Naskh Arabic', serif;

@@ -82,8 +82,8 @@ export const Location = memo(function Location() {
 
           {/* Parking Card */}
           <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-border/50 shadow-2xl" role="listitem">
-            <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-6">
-              <ParkingCircle className="w-7 h-7 text-amber-500" aria-hidden="true" />
+            <div className="w-14 h-14 rounded-2xl bg-bronze/10 dark:bg-bronze/20 flex items-center justify-center mb-6">
+              <ParkingCircle className="w-7 h-7 text-bronze-dark" aria-hidden="true" />
             </div>
             <h4 className="font-display font-bold text-foreground text-xl mb-3">{t.location_park_title}</h4>
             <p className="text-muted-foreground leading-relaxed">{t.location_park_body}</p>
@@ -106,12 +106,12 @@ export const Location = memo(function Location() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
-          className="bg-gradient-to-br from-primary/8 to-teal-500/5 dark:from-primary/15 dark:to-teal-500/10 rounded-3xl p-10 md:p-12 border border-primary/10 max-w-4xl mx-auto mt-12"
+          className="bg-gradient-to-br from-primary/8 to-bronze/12 dark:from-primary/20 dark:to-bronze/20 rounded-3xl p-10 md:p-12 border border-primary/10 max-w-4xl mx-auto mt-12"
           role="note"
         >
           <div className="flex items-start gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-              <Sunrise className="w-8 h-8 text-primary" aria-hidden="true" />
+            <div className="w-16 h-16 rounded-2xl bg-bronze/15 flex items-center justify-center shrink-0">
+              <Sunrise className="w-8 h-8 text-bronze-dark" aria-hidden="true" />
             </div>
             <div>
               <p className="text-lg font-bold text-primary mb-2">{t.location_tip_bold}</p>

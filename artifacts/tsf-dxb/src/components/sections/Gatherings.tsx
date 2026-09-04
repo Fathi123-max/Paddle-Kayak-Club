@@ -14,10 +14,10 @@ export const Gatherings = memo(function Gatherings() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const GATHERINGS = [
-    { icon: Sun, iconColor: 'text-amber-500', iconBg: 'bg-amber-50 dark:bg-amber-950/40', tag: t.g1_tag, time: t.g1_time, title: t.g1_title, body: t.g1_body, vibe: t.g1_vibe, note: t.g1_note },
+    { icon: Sun, iconColor: 'text-bronze-dark', iconBg: 'bg-bronze/10 dark:bg-bronze/20', tag: t.g1_tag, time: t.g1_time, title: t.g1_title, body: t.g1_body, vibe: t.g1_vibe, note: t.g1_note },
     { icon: Waves, iconColor: 'text-primary', iconBg: 'bg-primary/8 dark:bg-primary/15', tag: t.g2_tag, time: t.g2_time, title: t.g2_title, body: t.g2_body, vibe: t.g2_vibe, note: t.g2_note },
     { icon: Users, iconColor: 'text-secondary', iconBg: 'bg-secondary/8 dark:bg-secondary/15', tag: t.g3_tag, time: t.g3_time, title: t.g3_title, body: t.g3_body, vibe: t.g3_vibe, note: t.g3_note },
-    { icon: Star, iconColor: 'text-orange-500', iconBg: 'bg-orange-50 dark:bg-orange-950/40', tag: t.g4_tag, time: t.g4_time, title: t.g4_title, body: t.g4_body, vibe: t.g4_vibe, note: t.g4_note },
+    { icon: Star, iconColor: 'text-bronze-deep', iconBg: 'bg-bronze-deep/10 dark:bg-bronze-deep/20', tag: t.g4_tag, time: t.g4_time, title: t.g4_title, body: t.g4_body, vibe: t.g4_vibe, note: t.g4_note },
   ];
 
   return (
@@ -40,7 +40,7 @@ export const Gatherings = memo(function Gatherings() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
-          className="bg-gradient-to-r from-primary/10 via-teal-500/8 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-12 mb-20 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto shadow-lg"
+          className="bg-gradient-to-r from-primary/10 via-bronze/15 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-12 mb-20 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto shadow-lg"
         >
           <div className="flex flex-col sm:flex-row items-center gap-8 text-center sm:text-start">
             <span className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0" aria-hidden="true">
@@ -86,9 +86,9 @@ export const Gatherings = memo(function Gatherings() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="list" aria-label="Weather details">
             {[
-              { icon: Wind, bg: 'bg-sky-50 dark:bg-sky-950/30 border-sky-100 dark:border-sky-900', color: 'text-sky-500', val: t.wind_value, unit: t.wind_unit, desc: t.wind_desc },
-              { icon: Droplets, bg: 'bg-teal-50 dark:bg-teal-950/30 border-teal-100 dark:border-teal-900', color: 'text-teal-500', val: t.water_value, unit: t.water_unit, desc: t.water_desc },
-              { icon: Thermometer, bg: 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900', color: 'text-amber-500', val: t.temp_value, unit: t.temp_unit, desc: t.temp_desc },
+              { icon: Wind, bg: 'bg-primary/5 dark:bg-primary/15 border-primary/10 dark:border-primary/30', color: 'text-primary', val: t.wind_value, unit: t.wind_unit, desc: t.wind_desc },
+              { icon: Droplets, bg: 'bg-secondary/8 dark:bg-secondary/20 border-secondary/15 dark:border-secondary/30', color: 'text-secondary', val: t.water_value, unit: t.water_unit, desc: t.water_desc },
+              { icon: Thermometer, bg: 'bg-bronze/10 dark:bg-bronze/20 border-bronze/25 dark:border-bronze/30', color: 'text-bronze-deep', val: t.temp_value, unit: t.temp_unit, desc: t.temp_desc },
             ].map(({ icon: Icon, bg, color, val, unit, desc }, i) => (
               <div key={i} className={`flex flex-col items-center gap-3 ${bg} rounded-2xl p-4 sm:p-6 border`} role="listitem">
                 <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${color} ${isAR ? 'rtl-mirror' : ''}`} aria-hidden="true" />
@@ -150,18 +150,18 @@ export const Gatherings = memo(function Gatherings() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 0.9 }}
-          className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 rounded-3xl p-10 md:p-14 border border-orange-200/60 dark:border-orange-900/40 shadow-lg mb-16"
+          className="bg-gradient-to-br from-bronze/10 to-bronze-deep/10 dark:from-bronze/20 dark:to-bronze-deep/25 rounded-3xl p-10 md:p-14 border border-bronze/25 dark:border-bronze/40 shadow-lg mb-16"
           role="region"
           aria-label="BBQ event information"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="w-20 h-20 rounded-2xl bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center shrink-0">
-              <Flame className="w-10 h-10 text-orange-500" aria-hidden="true" />
+            <div className="w-20 h-20 rounded-2xl bg-bronze/15 dark:bg-bronze-deep/30 flex items-center justify-center shrink-0">
+              <Flame className="w-10 h-10 text-bronze-dark" aria-hidden="true" />
             </div>
             <div>
               <h3 className="text-3xl font-display font-bold text-foreground mb-4">{t.bbq_title}</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">{t.bbq_body}</p>
-              <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold mt-4">{t.bbq_note}</p>
+              <p className="text-sm text-bronze-deep dark:text-bronze-light font-semibold mt-4">{t.bbq_note}</p>
             </div>
           </div>
         </motion.div>
