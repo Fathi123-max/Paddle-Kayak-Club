@@ -395,6 +395,38 @@ video::-webkit-media-controls-enclosure {
     @apply font-bold;
     line-height: 1.3;
   }
+
+  /* Artist's touch: golden selection, matches the bronze edge of the palette */
+  ::selection {
+    background: hsl(38 92% 58% / 0.32);
+    color: hsl(217 91% 10%);
+  }
+
+  /* Refined scrollbar: deep navy track, bronze thumb */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(217 91% 8%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(38 45% 48% / 0.55);
+    border-radius: 999px;
+    border: 2px solid hsl(217 91% 8%);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(38 92% 58% / 0.8);
+  }
+}
+
+/* Pull quotes keep their graceful shape on narrow screens */
+@layer base {
+  h1, h2 {
+    text-wrap: balance;
+  }
 }
 
 /* Performance: GPU acceleration hints */

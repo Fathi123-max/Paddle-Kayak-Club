@@ -1,7 +1,7 @@
 // src/components/sections/Gatherings.tsx
 import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Sun, Users, Waves, Star, MessageCircle, Wind, Droplets, Thermometer, Flame } from 'lucide-react';
+import { Sun, Users, Waves, Star, MessageCircle, Wind, Droplets, Thermometer, Flame, Calendar, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -14,10 +14,10 @@ export const Gatherings = memo(function Gatherings() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const GATHERINGS = [
-    { icon: Sun, iconColor: 'text-amber-500', iconBg: 'bg-amber-50 dark:bg-amber-950/40', tag: t.g1_tag, time: t.g1_time, title: t.g1_title, body: t.g1_body, vibe: t.g1_vibe, emoji: '☀️', note: t.g1_note },
-    { icon: Waves, iconColor: 'text-primary', iconBg: 'bg-primary/8 dark:bg-primary/15', tag: t.g2_tag, time: t.g2_time, title: t.g2_title, body: t.g2_body, vibe: t.g2_vibe, emoji: '🚣', note: t.g2_note },
-    { icon: Users, iconColor: 'text-secondary', iconBg: 'bg-secondary/8 dark:bg-secondary/15', tag: t.g3_tag, time: t.g3_time, title: t.g3_title, body: t.g3_body, vibe: t.g3_vibe, emoji: '🌅', note: t.g3_note },
-    { icon: Star, iconColor: 'text-orange-500', iconBg: 'bg-orange-50 dark:bg-orange-950/40', tag: t.g4_tag, time: t.g4_time, title: t.g4_title, body: t.g4_body, vibe: t.g4_vibe, emoji: '🎉', note: t.g4_note },
+    { icon: Sun, iconColor: 'text-amber-500', iconBg: 'bg-amber-50 dark:bg-amber-950/40', tag: t.g1_tag, time: t.g1_time, title: t.g1_title, body: t.g1_body, vibe: t.g1_vibe, note: t.g1_note },
+    { icon: Waves, iconColor: 'text-primary', iconBg: 'bg-primary/8 dark:bg-primary/15', tag: t.g2_tag, time: t.g2_time, title: t.g2_title, body: t.g2_body, vibe: t.g2_vibe, note: t.g2_note },
+    { icon: Users, iconColor: 'text-secondary', iconBg: 'bg-secondary/8 dark:bg-secondary/15', tag: t.g3_tag, time: t.g3_time, title: t.g3_title, body: t.g3_body, vibe: t.g3_vibe, note: t.g3_note },
+    { icon: Star, iconColor: 'text-orange-500', iconBg: 'bg-orange-50 dark:bg-orange-950/40', tag: t.g4_tag, time: t.g4_time, title: t.g4_title, body: t.g4_body, vibe: t.g4_vibe, note: t.g4_note },
   ];
 
   return (
@@ -43,7 +43,9 @@ export const Gatherings = memo(function Gatherings() {
           className="bg-gradient-to-r from-primary/10 via-teal-500/8 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-12 mb-20 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto shadow-lg"
         >
           <div className="flex flex-col sm:flex-row items-center gap-8 text-center sm:text-start">
-            <span className="text-6xl" aria-hidden="true">📅</span>
+            <span className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0" aria-hidden="true">
+              <Calendar className="w-9 h-9 text-primary" />
+            </span>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">{t.schedule_label}</p>
               <h3 className="text-3xl md:text-4xl font-display font-black text-foreground">{t.schedule_title}</h3>
@@ -127,17 +129,15 @@ export const Gatherings = memo(function Gatherings() {
                       <span className="block text-sm font-semibold text-foreground mt-1">{g.time}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl" aria-hidden="true">{g.emoji}</span>
-                    <h3 className="text-3xl font-display font-bold text-foreground">{g.title}</h3>
-                  </div>
+                  <h3 className="text-3xl font-display font-bold text-foreground mb-4">{g.title}</h3>
                   <p className="text-muted-foreground leading-relaxed mb-6 text-lg">{g.body}</p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
                     <span className="w-2 h-2 rounded-full bg-primary/50 shrink-0" aria-hidden="true" />
                     <span className="italic">{t.vibe_label} {g.vibe}</span>
                   </div>
-                  <div className="bg-primary/5 dark:bg-primary/10 rounded-2xl px-6 py-5 border border-primary/10">
-                    <p className="text-sm text-primary font-medium">💡 {g.note}</p>
+                  <div className="bg-primary/5 dark:bg-primary/10 rounded-2xl px-6 py-5 border border-primary/10 flex items-start gap-3">
+                    <Lightbulb className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    <p className="text-sm text-primary font-medium">{g.note}</p>
                   </div>
                 </div>
               </motion.div>
@@ -159,10 +159,7 @@ export const Gatherings = memo(function Gatherings() {
               <Flame className="w-10 h-10 text-orange-500" aria-hidden="true" />
             </div>
             <div>
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-3xl" aria-hidden="true">🔥🏖️</span>
-                <h3 className="text-3xl font-display font-bold text-foreground">{t.bbq_title}</h3>
-              </div>
+              <h3 className="text-3xl font-display font-bold text-foreground mb-4">{t.bbq_title}</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">{t.bbq_body}</p>
               <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold mt-4">{t.bbq_note}</p>
             </div>
@@ -176,7 +173,9 @@ export const Gatherings = memo(function Gatherings() {
           transition={{ duration: prefersReducedMotion ? 0 : 1, ease: [0.19, 1, 0.22, 1], delay: 1.0 }}
           className="bg-white dark:bg-slate-900 rounded-3xl p-12 md:p-16 border border-border/50 shadow-xl text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-5xl mb-6 block" aria-hidden="true">🏄</span>
+          <span className="w-16 h-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+            <Waves className="w-8 h-8 text-primary" />
+          </span>
           <h3 className="text-3xl font-display font-bold text-foreground mb-4">{t.noboard_title}</h3>
           <p className="text-xl text-muted-foreground leading-relaxed">
             {t.noboard_body}{' '}

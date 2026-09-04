@@ -1,5 +1,5 @@
 // src/components/layout/Footer.tsx
-import { MapPin, Instagram, Heart, MessageCircle, Mail } from 'lucide-react';
+import { MapPin, Instagram, Heart, MessageCircle, Waves } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -23,7 +23,9 @@ export function Footer() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
           <div className="relative z-10">
-            <span className="text-6xl block mb-8" aria-hidden="true">🌊</span>
+            <span className="w-20 h-20 rounded-full bg-white/10 border border-white/15 flex items-center justify-center mx-auto mb-8" aria-hidden="true">
+              <Waves className="w-9 h-9 text-bronze" />
+            </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-snug max-w-4xl mx-auto">{t.footer_cta_title}</h2>
             <p className="text-slate-300 text-xl max-w-2xl mx-auto mb-4 leading-relaxed">{t.footer_cta_sub}</p>
             <p className="text-slate-400 text-base mb-10">{t.footer_cta_schedule}</p>

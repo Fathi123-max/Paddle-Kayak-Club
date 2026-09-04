@@ -6,7 +6,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Sun, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -243,19 +243,24 @@ export const Hero = memo(function Hero() {
             role="list"
             aria-label="Community statistics"
           >
-            <div role="listitem">
+            <div className="flex items-center gap-3" role="listitem">
+              <span className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center" aria-hidden="true">
+                <Sun className="w-5 h-5 text-bronze-light" />
+              </span>
               <span className="text-white font-medium">{t.hero_stat1}</span>
             </div>
-            <span className="text-white/30 hidden sm:block" aria-hidden="true">
-              ·
-            </span>
-            <div role="listitem">
+            <span className="w-px h-6 bg-white/15 hidden sm:block" aria-hidden="true" />
+            <div className="flex items-center gap-3" role="listitem">
+              <span className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center" aria-hidden="true">
+                <Users className="w-5 h-5 text-bronze-light" />
+              </span>
               <span className="text-white font-medium">{t.hero_stat2}</span>
             </div>
-            <span className="text-white/30 hidden sm:block" aria-hidden="true">
-              ·
-            </span>
-            <div role="listitem">
+            <span className="w-px h-6 bg-white/15 hidden sm:block" aria-hidden="true" />
+            <div className="flex items-center gap-3" role="listitem">
+              <span className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center" aria-hidden="true">
+                <Heart className="w-5 h-5 text-bronze-light" />
+              </span>
               <span className="text-white font-medium">{t.hero_stat3}</span>
             </div>
           </motion.div>

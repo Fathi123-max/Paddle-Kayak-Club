@@ -16,15 +16,15 @@ const translations = {
     lang_switch: "العربية",
 
     // Hero
-    hero_badge: "🌊 Dubai · Always Free · Always Open",
+    hero_badge: "Dubai · Always Free · Always Open",
     hero_headline1: "Find Your Tribe",
     hero_headline2: "on the Water.",
     hero_sub: "No memberships. No fees. Just good people, early mornings at Al Mamzar, and a shared love for the ocean. Bring your board and paddle with us.",
     hero_cta: "Join our WhatsApp Group",
     hero_secondary: "See our weekly meetups ↓",
-    hero_stat1: "☀️ Sunrise paddles every week",
-    hero_stat2: "🚣 All levels, all boards",
-    hero_stat3: "❤️ 500+ paddle buddies",
+    hero_stat1: "Sunrise paddles every weekend",
+    hero_stat2: "All levels · All boards",
+    hero_stat3: "50+ paddle buddies",
 
     // Story / About
     story_label: "Our Story",
@@ -38,8 +38,10 @@ const translations = {
     story_c2_body: "Friends told friends. Strangers became regulars. The WhatsApp group grew. And we realised we'd accidentally built something beautiful — a community of real people who love the water.",
     story_c3_title: "Now it's a weekly ritual.",
     story_c3_body: "We paddle, we share stories, we grab coffee on the beach. No logos. No coaches. No fees. Just TSF DXB — Team Supboard Forever — showing up for each other, week after week.",
-    story_quote: "\"TSF DXB is a safe space for absolute beginners and seasoned pros alike.\"",
+    story_quote: "“TSF DXB is a safe space for absolute beginners and seasoned pros alike.”",
     story_quote_sub: "If you can float, you belong. The only qualification we ask for is a good attitude.",
+    story_members: "Active community members",
+    story_members_note: "and growing",
 
     // Gatherings
     gatherings_label: "Our Weekly Rhythm",
@@ -51,7 +53,7 @@ const translations = {
     schedule_rsvp: "RSVP on WhatsApp",
     conditions_title: "Typical Paddle Conditions",
     conditions_sub: "Al Mamzar Beach Park · Early morning",
-    conditions_badge: "✅ Generally great for paddling",
+    conditions_badge: "Great paddling conditions",
     wind_value: "8–14",
     wind_unit: "km/h Wind",
     wind_desc: "Light breeze",
@@ -61,7 +63,7 @@ const translations = {
     temp_value: "26–32°",
     temp_unit: "Air Temp",
     temp_desc: "Warm & sunny",
-    conditions_note: "ℹ️ Typical conditions at Al Mamzar at 6 AM. We share live updates in the WhatsApp group the evening before.",
+    conditions_note: "Typical conditions at Al Mamzar at 6 AM. We share live updates in the WhatsApp group the evening before.",
     vibe_label: "Vibe:",
 
     g1_tag: "Every Sat & Sun",
@@ -94,7 +96,7 @@ const translations = {
 
     bbq_title: "Beach Barbecues & Sunsets",
     bbq_body: "Sometimes we swap the paddles for a grill! We host occasional beach barbecues for good food, great company, and sunset vibes by the water. Keep an eye on the WhatsApp group — these ones are legendary.",
-    bbq_note: "🌊 Follow us on WhatsApp to never miss a BBQ session",
+    bbq_note: "Follow us on WhatsApp to never miss a BBQ session",
 
     noboard_title: "Don't have a board?",
     noboard_body: "No worries! We'll show you where to rent one nearby, or someone might have a spare. Just ask in the group!",
@@ -116,7 +118,7 @@ const translations = {
     location_meet_bold: "Beach 2",
     location_meet_body: "near the water's edge. Look for the boards and the friendly faces — you can't miss us. Exact spot confirmed in WhatsApp the evening before.",
     location_meet_pre: "We usually gather at",
-    location_tip: "🌅 Arrive 10–15 minutes early for the best parking and to soak up the pre-sunrise magic. You won't regret it.",
+    location_tip: "Arrive 10–15 minutes early for the best parking and to soak up the pre-sunrise magic. You won't regret it.",
     location_tip_bold: "Pro tip:",
 
     // Rules
@@ -132,12 +134,12 @@ const translations = {
     r3_num: "03",
     r3_title: "Good Vibes Only",
     r3_body: "Leave your ego on the sand. There's no competition, no performance, no judgement. Whether you fall off your board ten times or glide like a pro, you belong here equally. We celebrate showing up, not showing off.",
-    rules_quote: "\"The water doesn't care about your job title. Neither do we.\"",
+    rules_quote: "“The water doesn't care about your job title. Neither do we.”",
 
     // Footer
     footer_cta_title: "Ready to paddle with us this weekend?",
     footer_cta_sub: "No sign-up forms. No fees. Just message us and come join the crew. The water is waiting.",
-    footer_cta_schedule: "📍 Al Mamzar Beach Park · Every Saturday & Sunday · 6:00 AM",
+    footer_cta_schedule: "Al Mamzar Beach Park · Every Saturday & Sunday · 6:00 AM",
     footer_cta_btn: "Join the WhatsApp Group",
     footer_brand_desc: "Dubai's free, passion-driven paddle community. Real people. Calm water. Good vibes. No fees. No egos. No agenda.",
     footer_explore: "Explore",
@@ -168,15 +170,15 @@ const translations = {
     lang_switch: "English",
 
     // Hero
-    hero_badge: "🌊 دبي · مجاناً دائماً · مفتوح للجميع",
+    hero_badge: "دبي · مجاناً دائماً · مفتوح للجميع",
     hero_headline1: "لاقي قبيلتك",
     hero_headline2: "على الماء.",
-    hero_sub: "مجتمع مجاني 100% لعشّاق التجديف والكاياك. من غير رسوم أو اشتراكات.. بس صحبة طيبة، سحور الفجر في الممزر، وحب مشترك للبحر. خذ بوردك وتجدّف معنا!",
+    hero_sub: "مجتمع مجاني 100% لعشّاق التجديف والكاياك. من غير رسوم أو اشتراكات.. بس صحبة طيبة، طلعات الفجر على شاطئ الممزر، وحب مشترك للبحر. خذ بوردك وتجدّف معنا!",
     hero_cta: "انضم لمجموعة الواتساب",
     hero_secondary: "شوف تجمعاتنا الأسبوعية ↓",
-    hero_stat1: "☀️ تجديف أسبوعي مع الشروق",
-    hero_stat2: "🚣 لكل المستويات",
-    hero_stat3: "❤️ أكثر من 500 متجذّف",
+    hero_stat1: "تجديف أسبوعي مع الشروق",
+    hero_stat2: "لكل المستويات وكل الألواح",
+    hero_stat3: "أكثر من 50 متجدّفاً",
 
     // Story / About
     story_label: "قصتنا",
@@ -190,8 +192,10 @@ const translations = {
     story_c2_body: "الأصحاب خبروا أصحابهم. الغرباء صاروا وجوه مألوفة. مجموعة الواتساب كبرت. وفجأة لقينا نفسنا بنشي شيء جميل — مجتمع من ناس حقيقية تحب الماي.",
     story_c3_title: "وصار طقس أسبوعي.",
     story_c3_body: "نتجدّف، نحكي حكاياتنا، ونشرب قهوة على الشاطئ. من غير شعارات، من غير مدربين، من غير رسوم. بس TSF DXB — نطلع لبعض، كل أسبوع.",
-    story_quote: "\"TSF DXB مكان آمن للمبتدئين والمحترفين على حد سواء.\"",
+    story_quote: "“TSF DXB مكان آمن للمبتدئين والمحترفين على حد سواء.”",
     story_quote_sub: "إذا تقدر تسبح، أنت من هنا. الشيء الوحيد اللي نطلبه هو خلق طيب.",
+    story_members: "عضو نشط في المجتمع",
+    story_members_note: "ويكبر",
 
     // Gatherings
     gatherings_label: "روتيننا الأسبوعي",
@@ -203,7 +207,7 @@ const translations = {
     schedule_rsvp: "أكّد حضورك بالواتساب",
     conditions_title: "أحوال التجديف المعتادة",
     conditions_sub: "حديقة شاطئ الممزر · الصبح الباكر",
-    conditions_badge: "✅ ظروف مثالية للتجديف",
+    conditions_badge: "ظروف مثالية للتجديف",
     wind_value: "8-14",
     wind_unit: "كم/س رياح",
     wind_desc: "نسيم خفيف",
@@ -213,7 +217,7 @@ const translations = {
     temp_value: "26-32°",
     temp_unit: "الجو",
     temp_desc: "دافئ ومشمس",
-    conditions_note: "ℹ️ هذي أحوال معتادة في الممزر الساعة 6 صباحاً. نرسل تحديثات مباشرة بمجموعة الواتساب الليلة اللي قبل.",
+    conditions_note: "هذي أحوال معتادة في الممزر الساعة 6 صباحاً. نرسل تحديثات مباشرة بمجموعة الواتساب الليلة اللي قبل.",
     vibe_label: "الأجواء:",
 
     g1_tag: "كل سبت وأحد",
@@ -246,7 +250,7 @@ const translations = {
 
     bbq_title: "باربيكيو وغروب",
     bbq_body: "أحياناً نبدّل المجاديف بشواية! تجمعات عفوية على الشاطئ، أكل طيب، وقعدة حلوة وقت الغروب.",
-    bbq_note: "🌊 تابعنا بالواتساب عشان ما تفوتك جلسة باربيكيو",
+    bbq_note: "تابعنا بالواتساب عشان ما تفوتك جلسة باربيكيو",
 
     noboard_title: "ما معك بورد؟",
     noboard_body: "من غير هم! بندلك على أماكن تأجير قريبة، أو واحد من الشباب يقدر يقرضك. بس اسأل بالمجموعة وخلّك مرتاح!",
@@ -268,7 +272,7 @@ const translations = {
     location_meet_bold: "الشاطئ رقم 2",
     location_meet_body: "قرب حافة الماي. دور على الألواح والوجوه الضاحكة — مستحيل ما تشوفنا. المكان بالضبط يتأكّد بالواتساب الليلة اللي قبل.",
     location_meet_pre: "دايم نجتمع عند",
-    location_tip: "🌅 وصل قبل 10-15 دقيقة عشان تاخذ أفضل موقف وتلحق سحر الماي قبل الشروق. ما راح تندم.",
+    location_tip: "وصل قبل 10-15 دقيقة عشان تاخذ أفضل موقف وتلحق سحر الماي قبل الشروق. ما راح تندم.",
     location_tip_bold: "نصيحة:",
 
     // Rules
@@ -284,12 +288,12 @@ const translations = {
     r3_num: "03",
     r3_title: "الخلق الطيب بس",
     r3_body: "اترك تكبّرك على الرمل. ما في منافسة، ما في استعراض، ما في أحكام. لو وقعت من لوحك عشر مرات أو كنت محترف، أنت من هنا بنفس القدر. نحن نحتفي إنك جيت، مو إنك استعرضت.",
-    rules_quote: "\"الماي ما يهتم وش وظيفتك. ولا نحن نهتم.\"",
+    rules_quote: "“الماي ما يهتم وش وظيفتك. ولا نحن نهتم.”",
 
     // Footer
     footer_cta_title: "جاهز تتجدّف معنا هذي العطلة؟",
     footer_cta_sub: "من غير استمارات تسجيل. من غير رسوم. بس أرسل لنا رسالة وتعال انضم للفريق. الماي يستناك.",
-    footer_cta_schedule: "📍 حديقة شاطئ الممزر · كل سبت وأحد · 6:00 صباحاً",
+    footer_cta_schedule: "حديقة شاطئ الممزر · كل سبت وأحد · 6:00 صباحاً",
     footer_cta_btn: "انضم لمجموعة الواتساب",
     footer_brand_desc: "مجتمع التجديف الحر في دبي. ناس حقيقية. ماي هادي. أجواء حلوة. من غير رسوم. من غير تكبّر. من غير أجندات.",
     footer_explore: "استكشف",

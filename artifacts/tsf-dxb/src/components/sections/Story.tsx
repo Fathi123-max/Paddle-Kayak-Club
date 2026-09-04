@@ -58,8 +58,8 @@ export const Story = memo(function Story() {
             className="relative"
           >
             <img
-              src={`${import.meta.env.BASE_URL}story-community.jpg`}
-              alt="Paddle community at sunrise"
+              src={`${import.meta.env.BASE_URL}story-sunrise.jpg`}
+              alt="Paddler gliding across calm water at sunrise"
               width={1400}
               height={900}
               loading="lazy"
@@ -68,13 +68,10 @@ export const Story = memo(function Story() {
             />
             {/* Overlay Card */}
             <div className="absolute bottom-4 right-4 md:bottom-8 md:-right-8 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl max-w-[200px] md:max-w-xs">
-              <p
-                ref={useCounterAnimation(500, 2) as React.RefObject<HTMLParagraphElement>}
-                className="text-primary font-display font-bold text-xl md:text-2xl mb-1"
-              >
-                0+
+              <p className="text-primary font-display font-bold text-xl md:text-2xl mb-1">
+                <span ref={useCounterAnimation(50, 2) as React.RefObject<HTMLSpanElement>}>0</span>+
               </p>
-              <p className="text-muted-foreground text-xs md:text-sm">Active community members</p>
+              <p className="text-muted-foreground text-xs md:text-sm">{t.story_members}</p>
             </div>
           </motion.div>
 
@@ -123,12 +120,12 @@ export const Story = memo(function Story() {
           className="bg-gradient-to-br from-primary/8 to-teal-500/5 rounded-3xl p-12 md:p-20 text-center border border-primary/10 relative"
           role="blockquote"
         >
-          <div className="absolute top-0 left-8 md:left-12 text-8xl text-primary/20 font-serif leading-none" aria-hidden="true">"</div>
+          <div className="absolute top-0 left-8 md:left-12 text-8xl text-primary/20 font-serif leading-none" aria-hidden="true">“</div>
           <p className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground leading-snug mb-6 relative z-10">
             {t.story_quote}
           </p>
           <p className="text-muted-foreground text-xl relative z-10">{t.story_quote_sub}</p>
-          <div className="absolute bottom-0 right-8 md:right-12 text-8xl text-primary/20 font-serif leading-none rotate-180" aria-hidden="true">"</div>
+          <div className="absolute bottom-0 right-8 md:right-12 text-8xl text-primary/20 font-serif leading-none rotate-180" aria-hidden="true">”</div>
         </motion.div>
       </div>
     </section>

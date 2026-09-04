@@ -1,7 +1,7 @@
 // src/components/sections/Location.tsx
 import { memo } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { MapPin, ParkingCircle, Users, Navigation } from 'lucide-react';
+import { MapPin, ParkingCircle, Users, Navigation, Sunrise } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -111,7 +111,7 @@ export const Location = memo(function Location() {
         >
           <div className="flex items-start gap-6">
             <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-              <span className="text-3xl" aria-hidden="true">🌅</span>
+              <Sunrise className="w-8 h-8 text-primary" aria-hidden="true" />
             </div>
             <div>
               <p className="text-lg font-bold text-primary mb-2">{t.location_tip_bold}</p>
