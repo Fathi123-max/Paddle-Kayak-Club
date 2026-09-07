@@ -86,7 +86,7 @@ export const Story = memo(function Story() {
               className="text-2xl md:text-3xl text-foreground font-light leading-loose mb-12"
               style={{ lineHeight: isAR ? '2' : '1.8' }}
             >
-              {t.story_intro}
+              {t.story_intro}{' '}
               <strong className="font-bold text-primary">{t.story_intro_bold}</strong>
             </p>
 
