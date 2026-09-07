@@ -5,8 +5,8 @@ import { MapPin, ParkingCircle, Users, Navigation, Sunrise } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const MAP_SRC = 'https://maps.google.com/maps?q=25.318419070956256,55.34765853282304&z=17&output=embed';
-const MAP_HREF = 'https://maps.google.com/?q=25.318419070956256,55.34765853282304';
+const MAP_SRC = 'https://maps.google.com/maps?q=25.318781,55.35075&z=17&output=embed';
+const MAP_HREF = 'https://maps.google.com/?q=25.318781,55.35075';
 
 export const Location = memo(function Location() {
   const { t, lang, isAR } = useLanguage();
@@ -39,7 +39,7 @@ export const Location = memo(function Location() {
         >
           <div className="overflow-hidden rounded-3xl shadow-2xl border border-border/50">
             <iframe
-              title="Al Mamzar Beach Park location on Google Maps"
+              title="Sadaf Beach, Al Mamzar location on Google Maps"
               src={mapSrc}
               width="100%"
               height="400"
